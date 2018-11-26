@@ -947,15 +947,218 @@ Promise.race([
 
 ### generator用法
 
-- 生成器生成就是迭代器，迭代器是一个函数
-  - 实现一个迭代器
-  - [redux-saga](https://redux-saga-in-chinese.js.org/)
-  - 语法
-    - 简单应用
-    - yield的返回值
-    - co 解决异步问题
+在理解generator之前先看一个例子。
 
-Todo...
+**实现一个可传任意个参数的加法函数**
+
+老司机们三下五除二就能得出求和函数
+```js
+const sum = () => {
+  return [...arguments].reduce((ret, item) => {
+    return ret + item
+  }, 0)
+}
+sum(1, 2, 3, 4) // => 10
+sum(1, 2, 3, 4, 5) // => 15
+```
+
+[代码地址]()
+
+使用ES6的展开运算符`...`可枚举出所有参数，再用数组包裹，即可将一个类数组转换为一个数组。利用reduce实现累加，方可得出求和函数。
+
+那展开运算符能否操作对象佯装的类数组呢？那就来试一试
+```js
+let obj = {
+  0: 1,
+  1: 2,
+  2: 3,
+  length: 3
+}
+console.log([...obj]) // => TypeError: obj[Symbol.iterator] is not a function
+```
+可得知对象是不能被迭代的，根据报错信息，我们再改进代码
+```js
+let o = { 0: 1, 1: 2, 2: 3, length: 3, [Symbol.iterator]: function () {
+  let currentIndex = 0
+  let that = this
+  return {
+    next(){
+      return {
+        value: that[currentIndex++],
+        done: currentIndex-1 === that.length
+      }
+    }
+  }
+}}
+let arr = [...o] // [1, 2, 3]
+```
+再使用generator实现
+```js
+let o = {0: 1, 1: 2, 2: 3, length: 3, [Symbol.iterator]: function* () {
+    let index = 0
+    while (index !== this.length) {
+      yield this[index]
+      index++
+    }
+  }
+}
+let arr = [...o] // [1, 2, 3]
+```
+生成器可以实现生成迭代器，生成器函数就是在函数关键字中加个*再配合yield来使用，并且yield是有暂停功能的。
+```js
+function * say() {
+  yield 'node'
+  yield 'react'
+  yield 'vue'
+}
+```
+那如何遍历迭代器呢？
+```js
+let it = say ()
+let flag = false
+do{
+  let {value, done} = it.next()
+  console.log(value)
+  flag = done
+}while(!flag)
+// => node
+//    react
+//    vue
+//    undefined
+```
+迭代器提供`next`方法，可得出迭代的`value`和是否已经迭代完成`done`，用一个循环即可遍历。
+
+yield的返回值的使用场景
+```js
+function * say() {
+    let a = yield 'hello'
+    console.log('a', a)
+    let b = yield 'careteen'
+    console.log('b', b)
+    let c = yield 'lanlan'
+    console.log(c)
+}
+let it = say()
+it.next(100) // 第一次next传递参数 是无意义的
+it.next(200)
+it.next(300)
+// => a 200
+//    b 300
+```
+**generator执行流程大体如下图**
+![generator-process](./assets/generator-process.png)
+可看出第一次next传递参数是无意义的，所以输出结果为 `a 200 b 300`
+
+以上均为同步的情况，接下来看下yield后面是异步的场景。
+
+再通过一个例子来深入理解。
+
+通过读取文件`1.txt`的内容为`2.txt`，再读取`2.txt`的内容为`3.txt`，最后读取`3.txt`中的内容`Careteen`
+
+首先需要准备三个文件，放置在`./static`目录下，再准备读取文件的函数，
+```js
+const fs = require('fs')
+const path = require('path')
+
+const resolvePath = (file) => {
+  return path.resolve(__dirname, './static/', file)
+}
+
+function read (file) {
+  return new Promise((resolve, reject) => {
+    fs.readFile(resolvePath(file), 'utf8', (err, data) => {
+      if (err) reject(err)
+      resolve(data)
+    })
+  })
+}
+```
+在使用generator实现读取函数
+```js
+function * r() {
+   let r1 = yield read('1.txt')
+   let r2 = yield read(r1)
+   let r3 = yield read(r2)
+  return r3
+}
+```
+期望的过程是通过读取文件`1.txt`的内容为`2.txt`，再读取`2.txt`的内容为`3.txt`，最后读取`3.txt`中的内容`Careteen`，进行返回。
+
+首先我们能想到使用回调的方式解决，因为yield后面是一个promise
+```js
+let it = r()
+let {value,done} = it.next()
+value.then((data) => { // data->2.txt
+  let {value,done} = it.next(data)
+  value.then((data) => {
+    let { value, done } = it.next(data)
+    value.then((data) => {
+      console.log(data) // data-> 结果
+    })
+  })
+})
+// => Careteen
+```
+但这又会产生回调地狱，所以需要优化，我们需要一个迭代函数，通过递归可以实现
+```js
+function co (it) {
+  return new Promise((resolve, reject) => {
+    // next方法  express koa  原理 都是这样的
+    function next (data) { // 使用迭代函数来实现 异步操作按顺序执行
+      let { value, done } = it.next(data)
+      if(done){
+        resolve(value)
+      }else{
+        value.then((data) => {
+          next(data)
+        },reject)
+      }
+    }
+    next()
+  })
+}
+```
+使得异步可以按顺序来执行，最后看一下执行
+```js
+co(r()).then((data) => {
+  console.log(data)
+})
+// => Careteen
+```
+非常完美的实现了，但是如果yield的后面是一个同步操作，没有then方法，在`co`方法中我们还需要特殊处理，也比较简单。
+
+牛逼的[TJ大神的CO](https://github.com/tj/co)库就对此做了很完善的处理，感兴趣的可前往仓库看看源码，只有200多行。
+
+**generator的应用：**
+
+- [redux-saga使用 yield* 对 Sagas 进行排序](https://redux-saga-in-chinese.js.org/docs/advanced/SequencingSagas.html)
+- koa1
+
+**如何实现generator**
+```js
+function * careteen() {
+	yield 100
+  yield 200
+}
+```
+可查看[babel编译后的结果](https://babeljs.io/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=GYVwdgxgLglg9mABAKkRAhgJwKZW9sACgEpEBvAKAEgBPGbAGwBNEBGABnYsUVvucQAmThQC-QA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2&prettier=false&targets=&version=6.26.0&envVersion=)
+
+[⬆️回到顶部](#异步发展流程)
+
 ### async-await
 
-- 更优雅
+- 写起来是同步的，语法糖很甜不腻。
+
+```js
+async function careteen() {
+  await 100
+  await 200
+  return 300
+}
+careteen.then(_ => {
+  console.log(_)
+})
+```
+通过[babel编译后](https://babeljs.io/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=IYZwngdgxgBAZgV2gFwJYHsIysATgU2X3ywAoBKGAbwCgBIYAd2FWRgEYAGTmmGB5qxgAmbr34FkCXFgDMYgL40ck4hAB0yABYlSAfRgBeAHzV6UTCHQAbfOuvoA5vvI0F5IA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2&prettier=false&targets=&version=6.26.0&envVersion=)可看出实质上是通过`generator+co`的方式实现的。
+
+[⬆️回到顶部](#异步发展流程)
