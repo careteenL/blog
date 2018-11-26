@@ -1,5 +1,22 @@
 ## 异步发展流程
 
+篇幅较长，但重点为以下几点，可直接前往感兴趣的话题。
+
+  - [回调函数](#回调函数)
+    - 解析[lodash的after函数](#lodash-after函数)
+    - 解析[Node读取文件](#Node读取文件)
+  - [为什么要用promise](#为什么要用promise)
+  - [手摸手带你撸一个promise](#手摸手带你撸一个promise)
+    - 循序渐进讲解从零到一实现一个promise
+    - 面试常考点，也请带着问题阅读。
+      - promise的三个状态之间的关系？
+      - 如何实现promise的链式调用？
+      - 如何判断并解决promise循环引用的问题？
+      - 如何实现promise的finally方法？
+      - 如何实现promise的all方法？
+
+所有涉及的例子均有完整代码存放在[仓库](https://github.com/careteenL/66ball)，感兴趣的同学可直接clone在本地运行。
+
 **本文主要探讨下异步的前世今生**
 
 由于JavaScript单线程的特性，我们需要异步编程解决阻塞问题。
@@ -21,7 +38,7 @@
 - generator 恶心
 - aync+await
 
-下面将逐一介绍各种方式如何解决异步问题，涉及代码已放入[仓库]()
+下面将逐一介绍各种方式如何解决异步问题
 
 ### 回调函数
 
@@ -54,11 +71,15 @@ const _defaultCb = () => {}
 
 其中`cb`作为函数参数传入`after`函数，即是高阶函数的一个应用。
 
-[例子地址](./callback/1.after.js)
+[after函数例子地址](https://github.com/careteenL/66ball/blob/master/src/20181124-promise/callback/1.after.js)
+
+[⬆️回到顶部](#异步发展流程)
 
 #### Node读取文件
 
-在[./static](./callback/static/)下新建了两个文件`name.txt`,`age.txt`，期望读取文件内容并赋值给一个对象，然后打印。
+现在有一个场景，读取两个文件内容，赋值给一个对象，并打印。
+
+在[./static](https://github.com/careteenL/66ball/blob/master/src/20181124-promise/callback/static/name.txt)下新建了两个文件`name.txt`,`age.txt`，期望读取文件内容并赋值给一个对象，然后打印。
 ```js
 const fs = require('fs')
 
@@ -92,6 +113,8 @@ fs.readFile('./static/name.txt', 'utf8', (err,data) => {
   })  
 })
 ```
+[本例地址](https://github.com/careteenL/66ball/blob/master/src/20181124-promise/callback/2.read.js)
+
 并且两个文件读取时间是累加，不是并行的，如果文件很多并且很大，那等待时间将非常久，所以并不推荐。
 
 这里针对第三个问题**多个异步操作，在同一时间内，如何同步异步的结果？**，可以采用**发布订阅**的方式解决
@@ -109,7 +132,7 @@ let dep = {
   }
 }
 ```
-不了解发布订阅模式的请移步我的[另一篇博客]()
+不了解发布订阅模式的请移步我的[另一篇博客](https://github.com/careteenL/66ball/tree/master/src/20181126-pub_sub)
 
 通过以下操作即可达到预期
 ```js
@@ -168,6 +191,10 @@ fs.readFile('./static/adress.txt', 'utf8', (err, data) => {
 ```
 再新增多项的话，代码的扩展性就非常差了。
 
+[node读取文件代码地址](https://github.com/careteenL/66ball/blob/master/src/20181124-promise/callback/2.read.resolve.js)
+
+[⬆️回到顶部](#异步发展流程)
+
 ### 为什么要用promise
 
 那么接下来介绍promise的出现所解决的问题
@@ -196,6 +223,10 @@ const REJECTED = 'rejected' // 失败态
 - 当状态为`fulfilled`或`rejected`时
   - 不能转为其他状态
   - 必须有一个`value`或`reason`且不能改变
+
+> 面试点：promise的三个状态之间的关系？
+
+[⬆️回到顶部](#异步发展流程)
 
 #### then方法
 
@@ -261,7 +292,10 @@ p.then((data) => {
 }, (err) => {
   console.log(err)
 })
+// => p success xx
 ```
+[简易版1.0.0地址](https://github.com/careteenL/66ball/blob/master/src/20181124-promise/promise/3.1.%08promise.js)以及[测试用例地址](https://github.com/careteenL/66ball/blob/master/src/20181124-promise/promise/3.1.promise.case.js)
+
 虽然实现了一个很简易的promise，但还存在很多问题，比如下面
 ```js
 let Promise = require('./3.1.promise.js')
@@ -276,8 +310,12 @@ p2.then((data) => {
 }, (err) => {
   console.log(err)
 })
+// => p success xx
+//    p second success xx
 ```
 对于异步的代码是不会处理的
+
+[⬆️回到顶部](#异步发展流程)
 
 **处理`executor`函数中代码为异步的情况**
 
@@ -360,7 +398,14 @@ p.then((data) => {
 }, (err) => {
   console.log(err)
 })
+// 一秒以后打印
+// => p success xxx
+//    p second success xxx
 ```
+
+[简易版1.0.1地址](https://github.com/careteenL/66ball/blob/master/src/20181124-promise/promise/3.2.%08promise.js)以及[测试用例地址](https://github.com/careteenL/66ball/blob/master/src/20181124-promise/promise/3.2.promise.case.js)
+
+[⬆️回到顶部](#异步发展流程)
 
 **处理then的链式调用**
 
@@ -489,8 +534,18 @@ p.then((data) => {
 }, (err) => {
   console.log(err)
 })
+// 一秒以后打印
+// => p success xxx
+//    success then undefined
 ```
+
+[简易版1.0.2地址](https://github.com/careteenL/66ball/blob/master/src/20181124-promise/promise/3.3.%08promise.js)以及[测试用例地址](https://github.com/careteenL/66ball/blob/master/src/20181124-promise/promise/3.3.promise.case.js)
+
+> 面试点：如何实现promise的链式调用？
+
 如代码中只是简单处理`_resolvePromise`方法
+
+[⬆️回到顶部](#异步发展流程)
 
 **完善_resolvePromise**
 
@@ -564,6 +619,9 @@ p.then((data) => {
 }, (err) => {
   console.log(`p error ${err}`)
 })
+// 一秒以后打印
+// => p success xxx
+//    p success then first result
 
 // 抛错
 let p2 = new Promise((resolve,reject) => {
@@ -580,6 +638,8 @@ p2.then((data) => {
 }, (err) => {
   console.log(`p2 error ${err}`)
 })
+// 一秒以后打印
+// => p2 error Error: just happy
 
 // promise
 let p3 = new Promise((resolve,reject) => {
@@ -612,6 +672,13 @@ p4.then((data) => {
   console.log(data)
 })
 ```
+
+[简易版1.0.3地址](https://github.com/careteenL/66ball/blob/master/src/20181124-promise/promise/3.4.%08promise.js)以及[测试用例地址](https://github.com/careteenL/66ball/blob/master/src/20181124-promise/promise/3.4.promise.case.js)
+
+> 面试点：如何判断并解决promise循环引用的问题？
+
+[⬆️回到顶部](#异步发展流程)
+
 以上一个符合`Promise/A+`规范的promise基本完成
 
 那怎么验证自己写的promise是否正确呢？
@@ -640,7 +707,9 @@ promises-aplus-tests your-promise.js
 ```
 都是绿色表示检查通过
 
-[代码地址]()
+[代码地址](https://github.com/careteenL/66ball/blob/master/src/20181124-promise/promise/3.5.%08promise.js)
+
+[⬆️回到顶部](#异步发展流程)
 
 ### promise周边
 
@@ -651,6 +720,8 @@ promises-aplus-tests your-promise.js
 - finally方法
 - all方法
 - race方法
+
+下面实现的地址在[简易版1.1.1](https://github.com/careteenL/66ball/blob/master/src/20181124-promise/promise/3.6.%08promise.js)以及[测试用例](https://github.com/careteenL/66ball/blob/master/src/20181124-promise/promise/3.6.promise.case.js)
 
 #### catch方法
 
@@ -681,6 +752,8 @@ p.then((data) => {
 // => p success then xxx
 //    p Error: just happy
 ```
+
+[⬆️回到顶部](#异步发展流程)
 
 #### 静态方法
 
@@ -717,6 +790,8 @@ p3.then(data => {
 //    p3 err 999
 ```
 
+[⬆️回到顶部](#异步发展流程)
+
 #### finally方法
 
 实现
@@ -749,6 +824,10 @@ p4.then(data => {
 // => p4 ahhh
 //    p4 err Error: error p4
 ```
+
+> 面试点：如何实现promise的finally方法？
+
+[⬆️回到顶部](#异步发展流程)
 
 #### all方法
 
@@ -813,6 +892,10 @@ Promise.all([
 // => all Careteen,23
 ```
 
+> 面试点：如何实现promise的all方法？
+
+[⬆️回到顶部](#异步发展流程)
+
 #### race方法
 
 实现
@@ -859,6 +942,8 @@ Promise.race([
 })
 // => race Careteen/23 不一定 得看读取速度
 ```
+
+[⬆️回到顶部](#异步发展流程)
 
 ### generator用法
 
