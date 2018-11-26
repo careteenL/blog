@@ -103,7 +103,7 @@ console.log(schoolInfo) // {}
 - 2、异步编程中，可能存在回调地狱
 - 3、多个异步操作，在同一时间内，如何同步异步的结果？
 
-回调地狱大家应该非常熟悉了。
+回调地狱大家应该非常熟悉了。
 ```js
 const fs = require('fs')
 
@@ -1153,7 +1153,7 @@ co(r()).then((data) => {
 
 **generator的应用：**
 
-- [redux-saga使用 yield* 对 Sagas 进行排序](https://redux-saga-in-chinese.js.org/docs/advanced/SequencingSagas.html)
+- [redux-saga使用 yield* 对 Sagas 进行排序](https://redux-saga-in-chinese.js.org/docs/advanced/SequencingSagas.html)
 - koa1
 
 **如何实现generator**
