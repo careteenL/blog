@@ -8,12 +8,12 @@
   - [为什么要用promise](#为什么要用promise)
   - [手摸手带你撸一个promise](#手摸手带你撸一个promise)
     - 循序渐进讲解从零到一实现一个promise
-    - 面试常考点，也请带着问题阅读。
+    - 面试常考点，也请带着问题阅读。
       - promise的三个状态之间的关系？
       - 如何实现promise的链式调用？
       - 如何判断并解决promise循环引用的问题？
-      - 如何实现promise的finally方法？
-      - 如何实现promise的all方法？
+      - 如何实现promise的finally方法？
+      - 如何实现promise的all方法？
   - [generator用法](#generator用法)
   - [async-await](#async-await)
 
@@ -46,7 +46,7 @@
 
 首先介绍一下高阶函数，即一个函数的参数是函数或者函数返回值为函数，此函数称做高阶函数。
 
-#### lodash-after函数
+#### lodash-after函数
 
 再来看一个例子，常使用lodash的同学应该熟悉的一个方法[_.after(n, fn)](https://www.css88.com/doc/lodash/#_aftern-func)，作用是fn函数在调用n次以后才会执行。
 ```js
@@ -73,15 +73,15 @@ const _defaultCb = () => {}
 
 其中`cb`作为函数参数传入`after`函数，即是高阶函数的一个应用。
 
-[after函数例子地址](https://github.com/careteenL/66ball/blob/master/src/20181124-promise/callback/1.after.js)
+[after函数例子地址](https://github.com/careteenL/66ball/blob/master/src/20181124-promise/callback/1.after.js)
 
 [⬆️回到顶部](#异步发展流程)
 
 #### Node读取文件
 
-现在有一个场景，读取两个文件内容，赋值给一个对象，并打印。
+现在有一个场景，读取两个文件内容，赋值给一个对象，并打印。
 
-在[./static](https://github.com/careteenL/66ball/blob/master/src/20181124-promise/callback/static/name.txt)下新建了两个文件`name.txt`,`age.txt`，期望读取文件内容并赋值给一个对象，然后打印。
+在[./static](https://github.com/careteenL/66ball/blob/master/src/20181124-promise/callback/static/name.txt)下新建了两个文件`name.txt`,`age.txt`，期望读取文件内容并赋值给一个对象，然后打印。
 ```js
 const fs = require('fs')
 
@@ -95,7 +95,7 @@ fs.readFile('./static/age.txt', 'utf8', (err, data) => {
 })
 console.log(schoolInfo) // {}
 ```
-由于读取文件的过程是异步的，所以通过这种方式是无法满足预期的。
+由于读取文件的过程是异步的，所以通过这种方式是无法满足预期的。
 
 并且异步操作存在以下三个问题
 
@@ -103,7 +103,7 @@ console.log(schoolInfo) // {}
 - 2、异步编程中，可能存在回调地狱
 - 3、多个异步操作，在同一时间内，如何同步异步的结果？
 
-回调地狱大家已经非常熟悉了。
+回调地狱大家应该非常熟悉了。
 ```js
 const fs = require('fs')
 
@@ -174,7 +174,7 @@ fs.readFile('./static/age.txt', 'utf8', (err, data) => {
 ```
 在每次读取文件时触发打印事件，事件中进行判断只有两次读取都完成的情况下才会打印。
 
-以上方法看似解决了上面提到的第三个问题**多个异步操作，在同一时间内，同步异步的结果**，但是随着需求的变动，需要再读取一个`address`文件，就需作如下变动：
+以上方法看似解决了上面提到的第三个问题**多个异步操作，在同一时间内，同步异步的结果**，但是随着需求的变动，需要再读取一个`address`文件，就需作如下变动：
 ```js
 ...
 // 订阅
@@ -191,9 +191,11 @@ fs.readFile('./static/adress.txt', 'utf8', (err, data) => {
   dep.emit()
 })
 ```
-再新增多项的话，代码的扩展性就非常差了。
+再新增多项的话，代码的扩展性就非常差了。
 
-[node读取文件代码地址](https://github.com/careteenL/66ball/blob/master/src/20181124-promise/callback/2.read.resolve.js)
+下面将将介绍如何实现一个promise然后解决上面提到的问题
+
+[node读取文件代码地址](https://github.com/careteenL/66ball/blob/master/src/20181124-promise/callback/2.read.resolve.js)
 
 [⬆️回到顶部](#异步发展流程)
 
@@ -211,7 +213,7 @@ fs.readFile('./static/adress.txt', 'utf8', (err, data) => {
 
 ### 手摸手带你撸一个promise
 
-首先需要提到[promise/A+规范](https://promisesaplus.com/)，我们自己编写的promise是需要一个标准的。可以根据此标准一步一步来。
+首先需要提到[promise/A+规范](https://promisesaplus.com/)，我们自己编写的promise是需要一个标准的。可以根据此标准一步一步来。
 
 #### 需要三个状态
 
@@ -232,7 +234,7 @@ const REJECTED = 'rejected' // 失败态
 
 #### then方法
 
-更详细请移步文档，这里说几个重点
+更详细请移步文档，这里说几个重点
 
 - 处理`executor`函数中代码异常的情况
 - 处理`executor`函数中代码为异步的情况
@@ -281,9 +283,9 @@ class Promise {
   }
 }
 ```
-如下使用
+如下使用
 ```js
-let Promise = require('./3.1.promise.js')
+let Promise = require('./3.1.promise.js')
 
 let p = new Promise((resolve,reject) => {
   resolve('xx')
@@ -300,7 +302,7 @@ p.then((data) => {
 
 虽然实现了一个很简易的promise，但还存在很多问题，比如下面
 ```js
-let Promise = require('./3.1.promise.js')
+let Promise = require('./3.1.promise.js')
 let p2 = new Promise((resolve,reject) => {
   setTimeout(() => {
     resolve('xxx')
@@ -315,7 +317,7 @@ p2.then((data) => {
 // => p success xx
 //    p second success xx
 ```
-对于异步的代码是不会处理的
+对于异步的代码是不会处理的
 
 [⬆️回到顶部](#异步发展流程)
 
@@ -381,7 +383,7 @@ class Promise {
 ```
 使用
 ```js
-let Promise = require('./3.2.promise.js')
+let Promise = require('./3.2.promise.js')
 
 let p = new Promise((resolve,reject) => {
   setTimeout(() => {
@@ -405,7 +407,7 @@ p.then((data) => {
 //    p second success xxx
 ```
 
-[简易版1.0.1地址](https://github.com/careteenL/66ball/blob/master/src/20181124-promise/promise/3.2.%08promise.js)以及[测试用例地址](https://github.com/careteenL/66ball/blob/master/src/20181124-promise/promise/3.2.promise.case.js)
+[简易版1.0.1地址](https://github.com/careteenL/66ball/blob/master/src/20181124-promise/promise/3.2.%08promise.js)以及[测试用例地址](https://github.com/careteenL/66ball/blob/master/src/20181124-promise/promise/3.2.promise.case.js)
 
 [⬆️回到顶部](#异步发展流程)
 
@@ -517,7 +519,7 @@ class Promise {
 ```
 使用
 ```js
-let Promise = require('./3.3.promise.js')
+let Promise = require('./3.3.promise.js')
 
 let p = new Promise((resolve,reject) => {
   setTimeout(() => {
@@ -543,7 +545,7 @@ p.then((data) => {
 
 [简易版1.0.2地址](https://github.com/careteenL/66ball/blob/master/src/20181124-promise/promise/3.3.%08promise.js)以及[测试用例地址](https://github.com/careteenL/66ball/blob/master/src/20181124-promise/promise/3.3.promise.case.js)
 
-> 面试点：如何实现promise的链式调用？
+> 面试点：如何实现promise的链式调用？
 
 如代码中只是简单处理`_resolvePromise`方法
 
@@ -558,11 +560,11 @@ p.then((data) => {
 `_resolvePromise (promise2, x, resolve, reject)`
 
 - x为一个普通值
-- x为promise2时会导致循环调用
+- x为promise2时会导致循环调用
 - x为一个对象或者函数
   - x为一个promise
 
-考虑以上进行完善
+考虑以上进行完善
 ```js
   // 内部核心方法 处理 成功或者失败执行的返回值 和promise2的关系
   _resolvePromise (promise2, x, resolve, reject) {
@@ -603,7 +605,7 @@ p.then((data) => {
 ```
 使用
 ```js
-let Promise = require('./3.4.promise.js')
+let Promise = require('./3.4.promise.js')
 
 // 普通返回值
 let p = new Promise((resolve,reject) => {
@@ -677,7 +679,7 @@ p4.then((data) => {
 
 [简易版1.0.3地址](https://github.com/careteenL/66ball/blob/master/src/20181124-promise/promise/3.4.%08promise.js)以及[测试用例地址](https://github.com/careteenL/66ball/blob/master/src/20181124-promise/promise/3.4.promise.case.js)
 
-> 面试点：如何判断并解决promise循环引用的问题？
+> 面试点：如何判断并解决promise循环引用的问题？
 
 [⬆️回到顶部](#异步发展流程)
 
@@ -715,7 +717,7 @@ promises-aplus-tests your-promise.js
 
 ### promise周边
 
-以上只是一个简易的promise，我们期望完善更多功能：
+以上只是一个简易的promise，我们期望完善更多功能：
 
 - catch方法
 - 静态方法
@@ -736,7 +738,7 @@ catch (onRejected) {
 ```
 使用
 ```js
-let Promise = require('./3.6.promise.js')
+let Promise = require('./3.6.promise.js')
 
 // catch
 let p = new Promise((resolve,reject) => {
@@ -775,7 +777,7 @@ static reject (reason) {
 ```
 使用
 ```js
-let Promise = require('./3.6.promise.js')
+let Promise = require('./3.6.promise.js')
 
 // static resolve reject
 let p2 = Promise.resolve(100)
@@ -812,7 +814,7 @@ finally (cb) {
 ```
 使用
 ```js
-let Promise = require('./3.6.promise.js')
+let Promise = require('./3.6.promise.js')
 
 // finally
 let p4 = Promise.resolve(100)
@@ -866,7 +868,7 @@ static all (promises) {
 ```
 使用
 ```js
-let Promise = require('./3.6.promise.js')
+let Promise = require('./3.6.promise.js')
 
 // all & race
 const fs = require('fs')
@@ -917,7 +919,7 @@ static race (promises) {
 ```
 使用
 ```js
-let Promise = require('./3.6.promise.js')
+let Promise = require('./3.6.promise.js')
 
 // all & race
 const fs = require('fs')
@@ -1061,10 +1063,12 @@ it.next(300)
 [以上代码地址](https://github.com/careteenL/66ball/blob/master/src/20181124-promise/generator/5.generator.js)
 
 **generator执行流程大体如下图**
+
 ![generator-process](./assets/generator-process.png)
+
 可看出第一次next传递参数是无意义的，所以输出结果为 `a 200 b 300`
 
-以上均为同步的情况，接下来看下yield后面是异步的场景。
+以上均为同步的情况，接下来看下yield后面是异步的场景。
 
 再通过一个例子来深入理解。
 
@@ -1145,14 +1149,14 @@ co(r()).then((data) => {
 
 非常完美的实现了，但是如果yield的后面是一个同步操作，没有then方法，在`co`方法中我们还需要特殊处理，也比较简单。
 
-牛逼的[TJ大神的CO](https://github.com/tj/co)库就对此做了很完善的处理，感兴趣的可前往仓库看看源码，只有200多行。
+牛逼的[TJ大神的CO](https://github.com/tj/co)库就对此做了很完善的处理，感兴趣的可前往仓库看看源码，只有200多行。
 
 **generator的应用：**
 
-- [redux-saga使用 yield* 对 Sagas 进行排序](https://redux-saga-in-chinese.js.org/docs/advanced/SequencingSagas.html)
+- [redux-saga使用 yield* 对 Sagas 进行排序](https://redux-saga-in-chinese.js.org/docs/advanced/SequencingSagas.html)
 - koa1
 
-**如何实现generator**
+**如何实现generator**
 ```js
 function * careteen() {
   yield 100
