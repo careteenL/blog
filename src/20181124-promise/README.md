@@ -14,6 +14,8 @@
       - 如何判断并解决promise循环引用的问题？
       - 如何实现promise的finally方法？
       - 如何实现promise的all方法？
+  - [generator用法](#generator用法)
+  - [async-await](#async-await)
 
 所有涉及的例子均有完整代码存放在[仓库](https://github.com/careteenL/66ball)，感兴趣的同学可直接clone在本地运行。
 
@@ -962,7 +964,7 @@ sum(1, 2, 3, 4) // => 10
 sum(1, 2, 3, 4, 5) // => 15
 ```
 
-[代码地址]()
+[以上代码地址](https://github.com/careteenL/66ball/blob/master/src/20181124-promise/generator/1.generator.js)
 
 使用ES6的展开运算符`...`可枚举出所有参数，再用数组包裹，即可将一个类数组转换为一个数组。利用reduce实现累加，方可得出求和函数。
 
@@ -976,6 +978,9 @@ let obj = {
 }
 console.log([...obj]) // => TypeError: obj[Symbol.iterator] is not a function
 ```
+
+[以上代码地址](https://github.com/careteenL/66ball/blob/master/src/20181124-promise/generator/2.generator.js)
+
 可得知对象是不能被迭代的，根据报错信息，我们再改进代码
 ```js
 let o = { 0: 1, 1: 2, 2: 3, length: 3, [Symbol.iterator]: function () {
@@ -992,6 +997,7 @@ let o = { 0: 1, 1: 2, 2: 3, length: 3, [Symbol.iterator]: function () {
 }}
 let arr = [...o] // [1, 2, 3]
 ```
+
 再使用generator实现
 ```js
 let o = {0: 1, 1: 2, 2: 3, length: 3, [Symbol.iterator]: function* () {
@@ -1004,6 +1010,9 @@ let o = {0: 1, 1: 2, 2: 3, length: 3, [Symbol.iterator]: function* () {
 }
 let arr = [...o] // [1, 2, 3]
 ```
+
+[以上代码地址](https://github.com/careteenL/66ball/blob/master/src/20181124-promise/generator/3.generator.js)
+
 生成器可以实现生成迭代器，生成器函数就是在函数关键字中加个*再配合yield来使用，并且yield是有暂停功能的。
 ```js
 function * say() {
@@ -1026,6 +1035,9 @@ do{
 //    vue
 //    undefined
 ```
+
+[以上代码地址](https://github.com/careteenL/66ball/blob/master/src/20181124-promise/generator/4.generator.js)
+
 迭代器提供`next`方法，可得出迭代的`value`和是否已经迭代完成`done`，用一个循环即可遍历。
 
 yield的返回值的使用场景
@@ -1045,6 +1057,9 @@ it.next(300)
 // => a 200
 //    b 300
 ```
+
+[以上代码地址](https://github.com/careteenL/66ball/blob/master/src/20181124-promise/generator/5.generator.js)
+
 **generator执行流程大体如下图**
 ![generator-process](./assets/generator-process.png)
 可看出第一次next传递参数是无意义的，所以输出结果为 `a 200 b 300`
@@ -1125,6 +1140,9 @@ co(r()).then((data) => {
 })
 // => Careteen
 ```
+
+[以上代码地址](https://github.com/careteenL/66ball/blob/master/src/20181124-promise/generator/3.generator.js)
+
 非常完美的实现了，但是如果yield的后面是一个同步操作，没有then方法，在`co`方法中我们还需要特殊处理，也比较简单。
 
 牛逼的[TJ大神的CO](https://github.com/tj/co)库就对此做了很完善的处理，感兴趣的可前往仓库看看源码，只有200多行。
@@ -1137,7 +1155,7 @@ co(r()).then((data) => {
 **如何实现generator**
 ```js
 function * careteen() {
-	yield 100
+  yield 100
   yield 200
 }
 ```
@@ -1162,3 +1180,5 @@ careteen.then(_ => {
 通过[babel编译后](https://babeljs.io/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=IYZwngdgxgBAZgV2gFwJYHsIysATgU2X3ywAoBKGAbwCgBIYAd2FWRgEYAGTmmGB5qxgAmbr34FkCXFgDMYgL40ck4hAB0yABYlSAfRgBeAHzV6UTCHQAbfOuvoA5vvI0F5IA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2&prettier=false&targets=&version=6.26.0&envVersion=)可看出实质上是通过`generator+co`的方式实现的。
 
 [⬆️回到顶部](#异步发展流程)
+
+
