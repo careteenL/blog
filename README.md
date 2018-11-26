@@ -6,7 +6,7 @@ Just one ball
 
 ### JavaScript
 
-  - [异步发展流程](./src/20181124-promise)
+  - [异步发展流程-手摸手带你实现一个Promise](./src/20181124-promise)
   - [手摸手带你实现一个EventEmitter](./src/20181126-pub_sub)
 
 ### CSS
