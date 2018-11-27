@@ -1,6 +1,6 @@
-## 异步发展流程
+## 异步发展流程-手摸手带你实现一个promise
 
-篇幅较长，但重点为以下几点，可直接前往感兴趣的话题。
+篇幅较长，但重点为以下几点，可直接前往感兴趣的话题，各取所需。
 
   - [回调函数](#回调函数)
     - 解析[lodash的after函数](#lodash-after函数)
@@ -19,7 +19,7 @@
 
 所有涉及的例子均有完整代码存放在[仓库](https://github.com/careteenL/66ball)，感兴趣的同学可直接clone在本地运行。
 
-**本文主要探讨下异步的前世今生**
+**本文主要简单探讨下异步的前世今生，并手摸手带你实现一个promise**
 
 由于JavaScript单线程的特性，我们需要异步编程解决阻塞问题。
 
@@ -1171,6 +1171,23 @@ function * careteen() {
 
 - 写起来是同步的，语法糖很甜不腻。
 
+- bluebird
+  - promisify
+  - promisifyAll
+
+- async-await
+  - 串行情况
+  - 并行情况
+
+- async-await内部机制
+  - 在babel中的编译结果，实质上就是generator+co
+
+- 例子
+  - 三个小球滚动
+    - 回调实现 回调地狱
+    - promise实现 也不是很美观
+    - generator实现 需要co库
+    - async-await实现 
 ```js
 async function careteen() {
   await 100
@@ -1182,6 +1199,7 @@ careteen.then(_ => {
 })
 ```
 通过[babel编译后](https://babeljs.io/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=IYZwngdgxgBAZgV2gFwJYHsIysATgU2X3ywAoBKGAbwCgBIYAd2FWRgEYAGTmmGB5qxgAmbr34FkCXFgDMYgL40ck4hAB0yABYlSAfRgBeAHzV6UTCHQAbfOuvoA5vvI0F5IA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2&prettier=false&targets=&version=6.26.0&envVersion=)可看出实质上是通过`generator+co`的方式实现的。
+
 
 [⬆️回到顶部](#异步发展流程)
 
