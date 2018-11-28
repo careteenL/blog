@@ -21,7 +21,7 @@ let a = 2
 // undefined
   ```  
   - const
-    - let可以重新赋值 const不能改变赋值的空间
+    - let 可以重新赋值 const不能改变赋值的空间
 ```js
 const a = 1
 a = 2
