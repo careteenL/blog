@@ -52,4 +52,41 @@ b.push(1)
 - 解构赋值
   - 对象解构
   - 数组解构
+
+- 箭头函数 arrowFn
+  - 没有this
+  - 没有argument
+
+- Object.defineProperty
+  - 使用
+  - 应用
+    - vue2.0实现数据双向绑定
+  - 缺点
+    - 不能检测数组
+
+- proxy、reflect
+  - 应用
+    - vue3.0重写数据双向绑定
+  - 缺点
+    - 兼容性不好
+  - 优点
+    - 能检测数组
+  - 深度监控（可以递归）（自行思考）
+
+- 类 class
+  - ES5知识
+    - __proto__ 找的是所属类的原型，所有的类型
+    - prototype 这是原型，只有构造函数才有原型
+    - 继承
+      - 继承实例上的属性
+        - call
+      - 继承公共属性
+        - 
+        - Object.create 
+          - Child.prototype = Object.create(Parent.prototype, { constructor: { value: Child } })
+          - ES5如何实现
+      - 全都要
+        - call + 原型继承
+  - ES6的类
+    - 编译成ES5的样子
   
