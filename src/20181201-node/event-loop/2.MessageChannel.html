@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>MessageChannel</title>
+</head>
+<body>
+  <script>
+    let channel = new MessageChannel()
+    let port1 = channel.port1
+    let port2 = channel.port2
+    port1.postMessage('hello careteen ~')
+    port2.onmessage = function (e) {
+      console.log(e.data)
+    }    
+  </script>
+</body>
+</html>
