@@ -1,4 +1,6 @@
-## 事件循环详解
+## 事件循环详解
+
+Node系列-上一节[为什么要使用Node](./node.md)
 
 ### 目录
 
@@ -13,7 +15,6 @@
 
 - [Node的事件循环](#Node的事件循环)
   - [面试题详解](#面试题详解)
-
 
 ### 事件循环机制
 
@@ -302,3 +303,6 @@ fs.readFile('1.setImmediate.html', () => {
 [例子代码地址](./event-loop/4.node.case1.js)
 
 回顾上面提到的阶段，在`I/O事件`的回调中，`setImmediate`的回调永远优先于`setTimeout`的回调执行。所以返回结果的顺序是固定的。
+
+
+Node系列-下一节[手摸手带你撸一个commonjs规范](./module.md)
