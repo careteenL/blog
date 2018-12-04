@@ -305,5 +305,9 @@ fs.readFile('1.setImmediate.html', () => {
 
 回顾上面提到的阶段，在`I/O事件`的回调中，`setImmediate`的回调永远优先于`setTimeout`的回调执行。所以返回结果的顺序是固定的。
 
+### 友情链接
+
+- [Javascript 运行机制详解，Event Loop](http://ngaiwe.com/2018/01/16/javascript/eventLoop/)
+
 
 Node系列-下一节[手摸手带你撸一个commonjs规范](./module.md)
