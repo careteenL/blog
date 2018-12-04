@@ -98,6 +98,7 @@ module.exports = {
 ![](./assets/module-debug-1.png)
 
 2、进入到了`module.js`源文件
+
 ![](./assets/module-debug-2.png)
 
 里面提供了一个`mod`为`Module`类的实例，并且提供一个`require`方法，进入方法内查看
@@ -130,12 +131,15 @@ module.exports = {
 然后再调用实例的`_compile`方法，进入方法内查看
 
 8、`1`标志位会将读取的内容调用静态方法`wrap`进行包裹
+
 ![](./assets/module-debug-9.png)
 
 包裹方法如下图
+
 ![](./assets/module-debug-9-1.png)
 
 包裹后的内容如下
+
 ![](./assets/module-debug-9-2.png)
 
 从以上可看出相当于使用了闭包，匿名函数中传入在`module`实例上的一些属性`exports/require/module...`
@@ -149,6 +153,7 @@ module.exports = {
 9、以上步骤就模块化的大致思路，跳出以上所有方法内部。
 
 10、对于文件类型处理还需考虑另外两种情况，实现原理类似。
+
 ![](./assets/module-debug-10.png)
 
 只不过`.json`文件读取后会被转成一个`JSON对象`。
