@@ -62,7 +62,7 @@ Node系列-上一节[事件循环详解](./eventLoop.md)
 
 #### UMD（2011）
 
-兼容了`CommonJs`和`AMD`，核心思想是如果在`CommonJs`环境下，即存在`module.exports`，不存在`define`时将韩珊瑚执行结果交给`module.exports`实现`CommonJs`；否则使用`AMD`环境的`define`。
+兼容了`CommonJs`和`AMD`，核心思想是如果在`CommonJs`环境下，即存在`module.exports`，不存在`define`时将函数执行结果交给`module.exports`实现`CommonJs`；否则使用`AMD`环境的`define`。
 
 #### Es6 Module（2015）
 
@@ -94,7 +94,7 @@ module.exports = {
   age: '23'
 }
 ```
-1、点击进入函数类调试两次即可进入
+1、点击`进入函数内调试`两次即可进入
 ![](./assets/module-debug-1.png)
 
 2、进入到了`module.js`源文件
@@ -109,9 +109,9 @@ module.exports = {
 4、里面有缓存的功能，由于我们是第一次加载这个文件，没有缓存，所以直接跳过
 ![](./assets/module-debug-4.png)
 
-`491`行new了一个`Module`实例在`500`行传入`tryModuleLoad`方法，再进入此方法内查看
+`491`行new了一个`Module`实例，在`500`行传入`tryModuleLoad`方法，再进入此方法内查看
 
-5、做了一层`try..catch`，实际调用实例上的`load`方法，再进入此方法内查看
+5、做了一层`try...catch`，实际调用实例上的`load`方法，再进入此方法内查看
 ![](./assets/module-debug-5.png)
 
 6、先会判断是否加载过，防止重复加载。
@@ -171,7 +171,7 @@ module.exports = {
 - 处理`.js/json/node`三种文件类型
   - `.js`通过内置模块`vm`使其沙箱式执行文件内容
   - `.json`读取后转为`JSON对象`
-  - `.node`是一个二进制的`C++`文件，也是可以直接运行的
+  - `.node`是一个二进制的`C++`文件，是可以直接运行的
 
 下面针对以上各个核心点一一突破
 
