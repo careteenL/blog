@@ -5,6 +5,8 @@
 - [使用nrm管理你的npm-registry](#使用nrm管理你的npm-registry)
 - [使用nvm管理你的node版本](#使用nvm管理你的node版本)
 - [发布个人专属的npm包](#发布个人专属的npm包)
+  - 发布
+  - 更新
 
 ### 使用nrm管理你的npm-registry
 
