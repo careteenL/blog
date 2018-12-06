@@ -12,6 +12,7 @@ Just one ball
 
   - [异步发展流程-手摸手带你实现一个Promise](./src/20181124-promise)
   - [手摸手带你实现一个EventEmitter](./src/20181126-pub_sub)
+  - [ES6的骚操作](./src/20181127-es6) 待完善
 
 ### CSS
 
@@ -34,6 +35,16 @@ Just one ball
 
 
 ### NodeJs
+
+- [2018/12/01](./src/20181201-node)
+  - [为什么要使用Node](./src/20181201-node/node.md)
+  - [事件循环详解](./src/20181201-node/eventLoop.md)
+  - [手摸手带你撸一个commonjs规范](./src/20181201-node/module.md)
+
+- [2018/12/04](./src/20181204-node)
+  - [使用nrm和nvm管理你的npm源和node版本](./src/20181204-node/nrm-nvm.md)
+  - [一个JS第三方库的五脏六腑](./src/20181204-node/package-viscera.md) 待完善
+  - [编码那些事](./src/20181204-node/encoding.md)
 
 
 ### Nginx
