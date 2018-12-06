@@ -3,8 +3,8 @@ const path = require('path')
 
 // 读取buffer转为json对象
 async function read2JSON () {
-  let ret = await fs.readFile(path.resolve(__dirname, '2.txt'))
-  // let ret = await fs.readFile(path.resolve(__dirname, '../assets/nvm-ls.png'))
+  // let ret = await fs.readFile(path.resolve(__dirname, '2.txt'))
+  let ret = await fs.readFile(path.resolve(__dirname, '../assets/encoding-base64-example.png'))
   console.log(ret.toJSON())
   return ret.toJSON()
 }
