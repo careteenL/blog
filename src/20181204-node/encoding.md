@@ -138,7 +138,7 @@ read2JSON()
 
 `readFile`函数如果第二个参数没有指定会读取成一个`buffer`流，是由一个个`16进制`数组合在一起的。
 
-[buffer.toJSON](http://www.runoob.com/nodejs/nodejs-buffer.html)可以将一个buffer流转为一个json对象，十六进制也会被转十2进制。如上输出所示。
+[buffer.toJSON](http://www.runoob.com/nodejs/nodejs-buffer.html)可以将一个buffer流转为一个json对象，十六进制也会被转十进制。如上输出所示。
 
 #### 将10进制转为2进制
 
@@ -233,6 +233,23 @@ main()
 我们可以前往[base64在线转码解码](http://base64.us/)进行验证。
 
 ![](./assets/encoding-base64-decode.png)
+
+#### 简化代码
+
+对以上思路进行代码简化
+```js
+const CHARTS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
+function transfer (str) {
+  let buf = Buffer.from(str)
+  let result = ''
+  for(let b of buf){
+    result += b.toString(2)
+  }
+  return result.match(/(\d{6})/g).map(val => parseInt(val, 2)).map(val => CHARTS[val]).join('')
+}
+let fl = transfer('冯')
+console.log(fl) // => 5Yav
+```
 
 ### 小结
 

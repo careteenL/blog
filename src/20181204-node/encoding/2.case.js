@@ -3,8 +3,8 @@ const path = require('path')
 
 // 读取buffer转为json对象
 async function read2JSON () {
-  // let ret = await fs.readFile(path.resolve(__dirname, '2.txt'))
-  let ret = await fs.readFile(path.resolve(__dirname, '../assets/encoding-base64-example.png'))
+  let ret = await fs.readFile(path.resolve(__dirname, '2.txt'))
+  // let ret = await fs.readFile(path.resolve(__dirname, '../assets/encoding-base64-example.png'))
   console.log(ret.toJSON())
   return ret.toJSON()
 }
@@ -63,4 +63,19 @@ async function main () {
   return ret.join()
 }
 
+// 调用
 main()
+
+// 简化代码
+const CHARTS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
+function transfer (str) {
+  let buf = Buffer.from(str)
+  let result = ''
+  for(let b of buf){
+    result += b.toString(2)
+  }
+  return result.match(/(\d{6})/g).map(val => parseInt(val, 2)).map(val => CHARTS[val]).join('')
+}
+
+let fl = transfer('冯')
+console.log(fl) // => 5Yav
