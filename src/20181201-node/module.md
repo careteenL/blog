@@ -177,8 +177,20 @@ module.exports = {
 
 #### 如何实现缓存
 
+挂一个缓存对象即可
+
 #### 处理文件的查找规则
+
+一图胜千言
+
+![](./assets/module-process.png)
 
 
 #### 处理三种文件类型
+
+`.js`文件左一层包裹
+
+`.json`读取后转为`JSON对象`
+
+[简易实现代码见仓库](./module/require.js)
 
