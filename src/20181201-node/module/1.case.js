@@ -1,2 +1,2 @@
-let info = require('./require.js')
+let info = require('./1.require.js')
 console.log(info)

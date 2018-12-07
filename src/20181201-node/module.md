@@ -84,7 +84,7 @@ Node系列-上一节[事件循环详解](./eventLoop.md)
 
 1.case.js 文件内容
 ```js
-let info = require('./require.js')
+let info = require('./1.require.js')
 console.log(info)
 ```
 require.js 文件内容
