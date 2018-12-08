@@ -11,4 +11,6 @@
 
 - [ ] 解析Node源码中的EventEmitter
 - [ ] 一个JS第三方库的五脏六腑
+- [ ] Buffer必须掌握的几个API
+- [ ] fs常用API及树的遍历算法
 
