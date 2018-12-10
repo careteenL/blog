@@ -1,0 +1,17 @@
+{
+  "name": "20181204-node",
+  "version": "1.0.0",
+  "description": "传送门",
+  "main": "index.js",
+  "dependencies": {
+    "iconv-lite": "^0.4.24",
+    "mz": "^2.7.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}
