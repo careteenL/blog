@@ -28,7 +28,7 @@ async function copyFilePo (source, target) {
 }
 copyFilePo('./1.txt', './2.txt')
 
-// 2 编码问题：爬虫爬取别人非utf8编码文件
+// 3 编码问题：文件从GBK转为UTF8会出现BOM头问题
 function stripBOM (content) {
   if (Buffer.isBuffer(content)) {
     if (content[0] === 0xef && content[1] === 0xbb && content[2] === 0xbf) {
