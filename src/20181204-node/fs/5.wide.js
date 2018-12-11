@@ -51,11 +51,29 @@ function rmdirWideSync (p) {
       fs.rmdirSync(item)
     }
   }
-  console.log('sync wide rmdir success')
+  console.log('sync wide rmdirR success')
 }
 // rmdirWideSync('./5.wide')
 
 // 2 异步 广度优先
-function rmdirWide (p, cb) {
-  
+function rmdirWide(p, cb) {
+  console.log(p)
+  cb && cb()
+  fs.readdir(resolvePath(p), (err, files) => {
+    !function next (i) {
+      if(i >= files.length) return
+      let child = joinPath(p, files[i])
+      fs.stat(resolvePath(child), (err, statObj) => {
+        if(statObj.isDirectory()){
+          rmdirWide(child, () => next(i + 1))
+        } else {
+          console.log(child)
+          next(i + 1)
+        }
+      })
+    }(0)
+  })
 }
+rmdirWide('./5.wide', _ => {
+  console.log(`async wide rmdirR success`)
+})
