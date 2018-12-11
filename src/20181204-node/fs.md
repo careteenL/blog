@@ -117,7 +117,7 @@ fs.writeFileSync(resolvePath('./1.txt'), '我说今晚月光这么美，你说�
 
 ### 拷贝文件
 
-下面代码存在[仓库](./2.copy.js)，需要的自取调试
+下面代码存放在[仓库](./fs/2.copy.js)，需要的自取调试
 
 异步的写法
 ```js
@@ -345,7 +345,7 @@ mkdirMyDir().then(_ => {
 
 然后使用递归的方式实现
 
-下面代码存在[仓库](./4.rmdir.js)，需要的自取调试
+下面代码存放在[仓库](./fs/4.rmdir.js)，需要的自取调试
 
 ```js
 function rmdirRSync (p) {
@@ -371,7 +371,7 @@ rmdirRSync('./4.rmdir')
 
 接着将上面的同步代码改造成异步的方式。同步转异步的核心就是需要一个迭代函数去保证对异步队列的计数和执行。
 
-下面代码存在[仓库](./4.rmdir.js)，需要的自取调试
+下面代码存放在[仓库](./fs/4.rmdir.js)，需要的自取调试
 
 ```js
 function rmdirR (p, cb) {
@@ -400,7 +400,7 @@ rmdirR('./4.rmdir', _ => {
 
 上面的串行效率并不是最高的，我们期望能并行删除不相关的目录。这和`Promise.all()`的源码实现是相同的思路。
 
-下面代码存在[仓库](./4.rmdir.js)，需要的自取调试
+下面代码存放在[仓库](./fs/4.rmdir.js)，需要的自取调试
 
 ```js
 function rmdirRParallel (p, cb) {
@@ -434,7 +434,7 @@ rmdirRParallel('./4.rmdir', _ => {
 
 我们可以继续进行改进，既然在`Promise.all()`已经实现了，我们不妨直接使用`Promise`
 
-下面代码存在[仓库](./4.rmdir.js)，需要的自取调试
+下面代码存放在[仓库](./fs/4.rmdir.js)，需要的自取调试
 
 ```js
 function rmdirRParallelPromise (p) {
@@ -463,7 +463,7 @@ rmdirRParallelPromise('./4.rmdir', _ => {
 
 既然都用了`Promise`，那更推荐使用`Async+Await`的方式，再做改造。
 
-下面代码存在[仓库](./4.rmdir.js)，需要的自取调试
+下面代码存放在[仓库](./fs/4.rmdir.js)，需要的自取调试
 
 ```js
 let stat = promisify(fs.stat)
@@ -507,7 +507,7 @@ rmdirRParallelAsync('./4.rmdir').then(_ => {
 - 以上遍历后会得到一个队列，处于队列末尾的都是层级在最下面的子孙文件或者目录
 - 我们可以倒序删除队列的每一个元素，最终实现递归删除目录
 
-下面代码存在[仓库](./5.wide.js)，需要的自取调试
+下面代码存放在[仓库](./fs/5.wide.js)，需要的自取调试
 
 同样，需要准备好多层级目录
 ```js
