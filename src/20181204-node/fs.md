@@ -315,6 +315,8 @@ fs.rmdir(resolvePath('./4.rmdir'), err => {
   - `statObj.isFile/isDirectory()`：对状态对象判断是否为文件/目录
 - `fs.unlink(file)`：删除一个文件
 
+以下会使用到`同步/异步、深度优先/广度优先、并行/串行、先序遍历`思想实现代码。不理解这几个概念的，可以前往[深度优先算法]()查看或自行百度做一个简单了解。
+
 #### 同步深度优先先序删除多级目录
 
 因为同步的代码相比于异步更好写和理解，所以先来看看同步的实现方式。
@@ -363,7 +365,119 @@ rmdirRSync('./4.rmdir')
 
 #### 异步深度优先串行先序删除多级目录
 
-接着对上面的同步代码改造成异步的方式。
+接着将上面的同步代码改造成异步的方式。同步转异步的核心就是需要一个迭代函数去保证对异步队列的计数和执行。
+
+```js
+function rmdirR (p, cb) {
+  fs.stat(resolvePath(p), (err, statObj) => { // 拿取到当前的文件状态
+    if (err) throw Error(err)
+    if (statObj.isDirectory()) { // 目录 取儿子然后进行迭代
+      fs.readdir(resolvePath(p), (err, dirs) => {
+        dirs = dirs.map(dir => joinPath(p, dir))
+        function next (index) {
+          if (dirs.length === index) return fs.rmdir(resolvePath(p), cb) // 儿子删除完后 删除自己
+          rmdirR(dirs[index], _ => next(index + 1)) // 迭代儿子
+        }
+        next(0)
+      })
+    } else { // 文件直接删除
+      fs.unlink(resolvePath(p), cb)
+    }
+  })
+}
+rmdirR('./4.rmdir', _ => {
+  console.log(`async rmdirR success`)
+})
+```
+
+#### 异步深度优先并行先序删除多级目录
+
+上面的串行效率并不是最高的，我们期望能并行删除不相关的目录。这和`Promise.all()`的源码实现是相同的思路。
+
+```js
+function rmdirRParallel (p, cb) {
+  fs.stat(resolvePath(p), (err, statObj) => { // 拿取到当前的文件状态
+    if (err) throw Error(err)
+    if (statObj.isDirectory()) { // 目录 取儿子然后进行迭代
+      fs.readdir(resolvePath(p), (err, dirs) => {
+        dirs = dirs.map(dir => joinPath(p, dir))
+        if (dirs.length === 0) fs.rmdir(resolvePath(p), cb) // 儿子删除完后 删除自己
+        let index = 0
+        // 类似于Promise.all()
+        function all () {
+          index++
+          if (index === dirs.length) fs.rmdir(resolvePath(p), cb)
+        }
+        dirs.forEach(dir => { // 对儿子的迭代 循环的每一次都判断是否所有都执行完毕
+          rmdirRParallel(dir, all)
+        })
+      })
+    } else { // 文件直接删除
+      fs.unlink(resolvePath(p), cb)
+    }
+  })  
+}
+rmdirRParallel('./4.rmdir', _ => {
+  console.log(`async rmdirR Parallel success`)
+})
+```
+
+#### 异步(Promise)深度优先并行先序删除多级目录
+
+我们可以继续进行改进，既然在`Promise.all()`已经实现了，我们不妨直接使用`Promise`
+
+```js
+function rmdirRParallelPromise (p) {
+  return new Promise((resolve, reject) => {
+    fs.stat(resolvePath(p), (err, statObj) => {
+      if (statObj.isDirectory()) {
+        fs.readdir(resolvePath(p), (err, dirs) => {
+          dirs = dirs.map(dir => joinPath(p, dir))
+          dirs = dirs.map(dir => rmdirRParallelPromise(dir)) // 并行执行
+          Promise.all(dirs).then(data => { 
+            fs.rmdir(resolvePath(p), resolve) // 儿子都删除执行完以后 删除自己
+          })
+        })
+      } else {
+        fs.unlink(resolvePath(p), resolve)
+      }
+    })
+  })
+}
+rmdirRParallelPromise('./4.rmdir', _ => {
+  console.log(`async rmdirR Promise success`)
+})
+```
+
+#### 异步(Async)深度优先并行先序删除多级目录
+
+既然都用了`Promise`，那更推荐使用`Async+Await`的方式，再做改造。
+
+```js
+let stat = promisify(fs.stat)
+let readdir = promisify(fs.readdir)
+let unlink = promisify(fs.unlink)
+let rmdir = promisify(fs.rmdir)
+async function rmdirRParallelAsync (p) {
+  let statObj = await stat(resolvePath(p))
+  if (statObj.isDirectory()) {
+    let dirs = await readdir(resolvePath(p))
+    dirs = dirs.map(dir => rmdirRParallelAsync(joinPath(p, dir))) // 迭代儿子
+    await Promise.all(dirs) // 并行执行
+    await rmdir(resolvePath(p)) // 儿子都删除完以后 删除自己
+  } else {
+    await unlink(resolvePath(p))
+  }
+}
+rmdirRParallelAsync('./4.rmdir').then(_ => {
+  console.log(`async rmdirR Async success`)
+})
+```
+
+#### 同步广度优先删除多级目录
+
+上面说了一大推异步深度优先的删除方式，下面来看看通过广度优先是否可行。
+
 
 
 - 同步 深度优先
