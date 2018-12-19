@@ -44,12 +44,11 @@ app.listen(4000)
   // /
 // ...
 ```
-以上[代码存放在仓库](./1.use.js)，自取。
+以上[代码存放在仓库](./koa-my/1.use.js)，自取。
 
 在[koa官网](https://koajs.cn/#-request-)有说明在ctx挂载了一系列`request`和`response`的属性别名。
 
 ```js
-// 封装后相当于
 ctx = {}
 ctx.request = {}
 ctx.response = {}
@@ -60,7 +59,7 @@ ctx.res = ctx.response.res = res
 
 ### next
 
-以下[代码存放在仓库](./2.use.js)，自取。
+以下[代码存放在仓库](./koa-my/2.use.js)，自取。
 
 使用next看看作用
 ```js
@@ -163,7 +162,7 @@ app.use(async (ctx, next) => {
 
 `koa`致力于成为一个更小、更富有表现力、更健壮的`web`开发框架。
 
-其源码也是非常轻量且已读。
+其源码也是非常轻量且易读。
 
 ![](./assets/koa-catalog.png)
 
@@ -176,7 +175,7 @@ app.use(async (ctx, next) => {
 
 ## 开始撸源码
 
-下面涉及到的代码存放到[仓库](./src)中，需要的自取。
+下面涉及到的代码存放到[仓库](./koa-my/src)中，需要的自取。
 
 koa是用ES6实现的，主要是两个核心方法`app.listen()`和`app.use((ctx, next) =< { ... })`
 
@@ -459,7 +458,7 @@ app.on('error', err => {
 })
 ```
 
-测试用例代码存放在[仓库](./3.use.js)中，需要的自取。
+测试用例代码存放在[仓库](./koa-my/3.use.js)中，需要的自取。
 
 ## 总结
 
