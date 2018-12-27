@@ -192,3 +192,12 @@ npm version patch
 npm publish
 ```
 
+另外提一下`package.json`中版本号的前缀`~`和`^`的区别。
+
+```json
+  "@careteen/type": "~0.1.2",
+  "@careteen/match": "^0.2.0",
+```
+
+- 波浪符号`~`：自动更新当前`minor`的最新版本。即会更新到`0.1.x`最新版本。
+- 插入符号`^`：自动更新当前`major`的最新版本。即会更新到`0.x.x`最新版本。
