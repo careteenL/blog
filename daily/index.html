@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>点击授权</title>
+  <style>
+    .wrap {
+      /* margin-top: 300px;
+      margin-left: 200px; */
+    }
+    .btn {
+      display: inline-block;
+      line-height: 1;
+      white-space: nowrap;
+      cursor: pointer;
+      background: #fff;
+      border: 1px solid #dcdfe6;
+      color: #606266;
+      -webkit-appearance: none;
+      text-align: center;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      outline: 0;
+      margin: 0;
+      -webkit-transition: .1s;
+      transition: .1s;
+      font-weight: 500;
+      padding: 12px 20px;
+      font-size: 14px;
+      border-radius: 4px;
+      color: #fff;
+      background-color: #409EFF;
+      border-color: #409EFF;      
+    }
+    .btn:hover {
+      background: #66b1ff;
+      border-color: #66b1ff;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <section class="wrap">
+      <p class="btn" id="btn">点击授权</p>
+  </section>
+  <script>
+    var search = window.location.search.substr(1)
+    // 约定的`?link=xxxx` 简单点 就这样吧
+    var link = search.replace(/link=/, '')
+    var btn = document.getElementById('btn')
+    btn.addEventListener('click', function () {
+      window.open(link, '_blank')
+    })
+  </script>
+</body>
+</html>
