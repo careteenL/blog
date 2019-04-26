@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <h1>F12打开控制台断点调试并查看调用栈的情况</h1>
+  <script>
+    function baz() {
+      // 当前调用栈是:baz
+      // 因此，当前调用位置是全局作用域
+      console.log( "baz" );
+      debugger
+      bar(); // <-- bar 的调用位置 
+    }
+    function bar() {
+      // 当前调用栈是 baz -> bar
+      // 因此，当前调用位置在 baz 中
+      console.log( "bar" );
+      foo(); // <-- foo 的调用位置 
+    }
+    function foo() {
+      // 当前调用栈是 baz -> bar -> foo 
+      // 因此，当前调用位置在 bar 中
+      console.log( "foo" );
+    }
+    baz(); // <-- baz 的调用位置    
+  </script>
+  
+</body>
+</html>
