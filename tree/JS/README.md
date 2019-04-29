@@ -2,6 +2,43 @@
 
 - todo：使用doctoc生成目录
 
+## JavaScript对象是面向对象还是基于对象的？
+
+- JavaScript中对象独有的特色是：对象具有高度的动态性，这是因为JavaScript赋予了使用者在运行时为对象添改状态和行为的能力。这根绝大多数基于类的、静态的对象设计完全不同。
+- 面向对象的特征：封装、继承、多态。
+- **标准中：JavaScript是面向对象的。**
+
+## 我们真的需要模拟类吗？
+
+- ES6之前可以用function和prototype去模拟
+- ES6之后我们可以利用class、extend正大光明去使用类了！
+- 下面使用构造器模拟类的两种方式
+  ```js
+  // function
+  function c1(){
+    this.p1 = 1;
+    this.p2 = function(){
+      console.log(this.p1);
+    }
+  } 
+  var o1 = new c1;
+  o1.p2();
+  
+  // prototype
+  function c2(){
+  }
+  c2.prototype.p1 = 1;
+  c2.prototype.p2 = function(){
+    console.log(this.p1);
+  }
+  var o2 = new c2;
+  o2.p2();
+  ```
+
+## 你知道全部的对象分类吗？
+
+-
+
 ## 原始类型有哪几种？null是对象吗？基本数据类型和引用类型在存储上的差别？
 
 - 原始类型有`Undefined、Null、Boolean、number、string、symbol`六种，ES6新增了`symbol`类型。
@@ -79,8 +116,8 @@
 - 使用new调用函数，或者说发生构造函数调用时，会自动执行下面的操作
   - 创建（或者说构造）一个全新的对象
   - 这个新对象会被执行`[[原型]]`连接
-  - 这个新对象会绑定到函数调用的this
-  - 如果函数没有返回其他对象，那么new表达式中的函数调用会自动返回这个新对象
+  - 这个新对象会绑定到函数（构造器）调用的this
+  - 如果函数（构造器）没有返回其他对象，那么new表达式中的函数（构造器）调用会自动返回这个新对象
 
 - `new`和`对象字面量`的区别
   - 唯一区别就是：对象字面量可以一次指定多个键值，而new需要一个一个指定
