@@ -41,7 +41,7 @@
 
 ## 原始类型有哪几种？null是对象吗？基本数据类型和引用类型在存储上的差别？
 
-- 原始类型有`Undefined、Null、Boolean、number、string、symbol`六种，ES6新增了`symbol`类型。
+- 原始类型有`undefined、null、boolean、number、string、symbol`六种，ES6新增了`symbol`类型。
 - `null`是一个关键字并非对象，它的语义表示空值。
 - 基本数据类型和引用类型在`存储`上的区别是：
   - 基本数据类型存储在`栈`中，因为这些基本类型占据的空间是固定的，所以将其存入较小的内存区域栈中，便于快速查询变量的值。比如`var a = 10; var b = a; b = 20; console.log(a)`，此时的打印结果是`10`，因为`var b = a`只是将`a`的值复制了一份，去更改`b`的值并不会影响`a`。
