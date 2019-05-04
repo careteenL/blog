@@ -166,6 +166,19 @@
 
 ## 如何理解原型？如何理解原型链？
 
+- 如果要访问对象中不存在的一个属性，`[[GET]]`操作就会查找对象内部`[[Prototype]]`关联的对象。这个关联关系实际上定义了一条（原型链），在查找属性时会对它遍历。
+- 关联两个对象最常用的方法就是用`new`关键字进行函数调用，会创建一个关联其他对象的新对象。
+  - 下面模拟下ES5中关联对象的方法`Object.create()`
+  ```js
+  Object.create = function (o) {
+    function F () {}
+    F.prototype = o
+    return new F()
+  }
+  ```
+  - 其中特别的一点是`Object.create(null)`会创建一个空对象，没有原型链，无法进行委托。所以没法用`instanceof`去判断。
+- ES6中`Object.getProtoOf()`、`Object.setProtoOf()`可以获取和设置一个对象的原型指向。
+
 ## 什么是变量提升？
 
 - 作用域
