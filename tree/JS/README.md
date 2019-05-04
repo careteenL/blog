@@ -178,6 +178,8 @@
   ```
   - 其中特别的一点是`Object.create(null)`会创建一个空对象，没有原型链，无法进行委托。所以没法用`instanceof`去判断。
 - ES6中`Object.getProtoOf()`、`Object.setProtoOf()`可以获取和设置一个对象的原型指向。
+- 原型查找规则如下
+  ![tree-__proto__](../../assets/tree-__proto__.png)
 
 ## 什么是变量提升？
 
