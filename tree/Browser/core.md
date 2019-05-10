@@ -118,5 +118,5 @@ Chromium的多进程架构
 - tcp网络连接优化：tcp调优、http/2、keep-alive
 - 硬件：加大带宽，使用cdn（对象存储）
 - 资源大小：gzip、webp、image压缩、减少cookie体积（只存储身份信息）
-- 
 
+- [ ] todo：实践上面的优化策略
