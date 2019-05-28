@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+    <video id="js-vid_6s-muted" width="234" height="131.625" loop="loop" muted="" x-webkit-airplay="true" webkit-playsinline="" playsinline="true" poster="http://wxsnsdythumb.wxs.qq.com/109/20250/snsvideodownload?m=2d27202f3cb1a766ea3e77fedcbaf46d&amp;filekey=3033020101041f301d02016d0402534804102d27202f3cb1a766ea3e77fedcbaf46d02020642040d00000004627466730000000131&amp;hy=SH&amp;storeid=32303139303531303138333934303030306561623032313336666664393330323561333230613030303030303664&amp;bizid=1023" preload="auto" style="margin-top: -1px;">
+      <source src="http://wxsnsdy.wxs.qq.com/105/20210/snsdyvideodownload?m=56ec897fa0781c5e5ed20d130a73e5cf&amp;filekey=30340201010420301e02016904025348041056ec897fa0781c5e5ed20d130a73e5cf020318e7dc040d00000004627466730000000131&amp;hy=SH&amp;storeid=32303139303531303138333934303030306566346662313336666664393330323561333230613030303030303639&amp;bizid=1023" type="video/mp4">
+    Your browser does not support the video tag.
+    </video>  
+  
+</body>
+
+<script>
+  // 处理 a
+  var links = document.getElementsByTagName('a')
+  Array.prototype.slice.call(links, 0).forEach(link => {
+      var tempHref = link.getAttribute('href') || ''
+      tempHref = tempHref.replace(/^http:\/\//, '//')
+      link.setAttribute('href', tempHref)
+  })
+
+  // 处理 img
+  var imgs = document.getElementsByTagName('img')
+  Array.prototype.slice.call(imgs, 0).forEach(img => {
+      var tempSrc = img.getAttribute('src') || ''
+      tempSrc = tempSrc.replace(/^http:\/\//, '//')
+      img.setAttribute('src', tempSrc)
+  })            
+
+  // 处理 video
+  var videos = document.getElementsByTagName('video')
+  Array.prototype.slice.call(videos, 0).forEach(video => {
+      var tempPoster = video.getAttribute('poster') || ''
+      console.log(tempPoster)
+      tempPoster = tempPoster.replace(/^http:\/\//, '//')
+      video.setAttribute('poster', tempPoster)
+  })            
+  var sources = document.getElementsByTagName('source')
+  Array.prototype.slice.call(sources, 0).forEach(source => {
+      var tempSrc = source.getAttribute('src') || ''
+      tempSrc = tempSrc.replace(/^http:\/\//, '//')
+      source.setAttribute('src', tempSrc)
+  })   
+
+</script>
+</html>
