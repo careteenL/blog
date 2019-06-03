@@ -40,6 +40,13 @@
       console.log(tempPoster)
       tempPoster = tempPoster.replace(/^http:\/\//, '//')
       video.setAttribute('poster', tempPoster)
+      var source = video.getElementsByTagName('source')
+      console.log(source)
+      source = source[0]
+      var tempSrc = source.getAttribute('src') || ''
+      console.log(tempSrc)
+      tempSrc = tempSrc.replace(/^http:\/\//, '//')
+      source.setAttribute('src', tempSrc)      
   })            
   var sources = document.getElementsByTagName('source')
   Array.prototype.slice.call(sources, 0).forEach(source => {
