@@ -6,6 +6,7 @@
 
 ```
 ├── Algorithm
+├── Applet
 ├── Browser
 ├── CSS
 ├── DataStruct
