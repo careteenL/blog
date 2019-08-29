@@ -213,11 +213,10 @@ setTimeout(() => {
   - `setTimeout`方法
   - `setInterval`方法
 - pending callbacks阶段
-  - I/O读写操作。如`fs.readFile()`方法
 - idle, prepare阶段
   - 仅在内部使用，我们暂时不用关注
 - poll阶段
-  - 检索新的I/O事件，执行与I/O相关的回调(除了关闭回调、计时器调度的回调和setimmediation()之外，几乎所有回调都是如此);节点将在适当的时候在这里阻塞。
+  - 检索新的I/O事件，执行与I/O相关的回调(除了关闭回调、计时器调度的回调和setimmediation()之外，几乎所有回调都是如此);节点将在适当的时候在这里阻塞。如`fs.readFile()`方法
 - check阶段
   - `setImmediate()`的回调会在这个阶段执行
 - close callbacks阶段
@@ -245,7 +244,7 @@ setTimeout(() => {
   - 如上文所言，这个阶段主要执行大部分I/O事件的回调，包括一些为操作系统执行的回调。例如一个TCP连接生错误时，系统需要执行回调来获得这个错误的报告。
 - 如此反复循环
 
-- 特别的：`process.nextTick()`这个方法虽然没有在上面列入，但是却在每个阶段执行完毕准备进入下一个阶段时优先调用
+- 特别的：`process.nextTick()`这个方法虽然没有在上面列入，但是却在每个阶段执行完毕准备进入下一个阶段时优先调用，与此同时，每个宏任务执行后都会清空微任务队列（promise.then()、process.nextTick()）。
   - 与执行`poll queue`的任务不同的是，这个操作在队列清空前是不会停止的。也就是说错误使用会导致node进入一个死循环，直到内存泄露
 
 #### 面试题详解
