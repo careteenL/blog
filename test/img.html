@@ -12,10 +12,16 @@
   </style>
 </head>
 <body>
-  <h1>请使用微信扫描二维码</h1>
+  <h1 id="name2" data-a="1" data-b_b="2">请使用微信扫描二维码</h1>
   <img src="http://t-img.51f.com/sh740wsh/xf/dt/1ff8a944-e44f-4e5f-bd5a-cfa87398bea2.JPEG" alt="wechart">
 </body>
 <script>
+  var name2 = document.getElementById('name2')
+  console.log(name2)
+  name2.onclick = function (e) {
+    console.log(this.dataset, 'this.dataset')
+    console.log(this.dataset.a, this.dataset.b, this.dataset.b_b)
+  }
   setInterval(function() {
     window.location.reload()
   }, 10000)

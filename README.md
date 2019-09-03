@@ -8,6 +8,10 @@ Just one ball
 
 ## 传送门
 
+### 个人履历
+
+<!-- - [个人履历](./resume.md) -->
+
 ### JavaScript
 
   - [异步发展流程-手摸手带你实现一个Promise](./src/20181124-promise)
