@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>双飞翼布局</title>
+  <style>
+  #container .column {
+    float: left;
+    position: relative;
+  }
+  #container {
+    /* padding-left: 200px;
+    padding-right: 150px; */
+  }
+  #center {
+    width: 100%; 
+  }
+  #inside {
+    margin: 0 150px 0 200px;
+  }
+  #left {
+    width: 200px;
+    margin-left: -100%;
+    /* left: -200px; */
+  }
+  #right {
+    width: 150px;
+    margin-left: -150px;
+    /* right: -150px; */
+  }
+  #footer {
+    clear: both;
+  }  
+  </style>
+</head>
+<body>
+  <div id="header">#header</div>
+
+  <div id="container">
+    <div id="center" class="column">
+      <div id="inside">#center</div>
+    </div>
+    <div id="left" class="column">#left</div>
+    <div id="right" class="column">#right</div>
+  </div>
+  <div id="footer">#footer</div>  
+</body>
+</html>

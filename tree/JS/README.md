@@ -253,3 +253,8 @@
 - [实现尾递归优化](./tail-calls-opt.md)
 
 - todo 题目待完善。
+
+## 一些小题目
+
+- [用递归算法实现，数组长度为5且元素的随机数在2-32间不重复的值](./build-random-array.js)
+- [去掉字符串中最后一个指定字符-零宽正向先行断言的运用](./zero-width-positive-look-ahead-assertion.js)
