@@ -8,6 +8,14 @@ Just one ball
 
 ## 传送门
 
+### 相关链接
+
+- [CareteenL-掘金](https://juejin.im/user/59c312c86fb9a00a5d39325b)
+- [CareteenL-segmentfault](https://segmentfault.com/u/careteenl)
+- [Careteen-个人博客](http://blog.careteen.wang)
+- [Careteen-知乎](https://www.zhihu.com/people/careteen/activities)
+- [新浪微博](https://weibo.com/578551187)
+
 ### 个人履历
 
 <!-- - [个人履历](./resume.md) -->
