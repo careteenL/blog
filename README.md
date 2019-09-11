@@ -16,6 +16,21 @@ Just one ball
 - [Careteen-知乎](https://www.zhihu.com/people/careteen/activities)
 - [新浪微博](https://weibo.com/578551187)
 
+#### 实现的一系列小而美的类库
+
+JavaScript第三方库脚手架[@careteen/jslib-cli](https://github.com/careteenL/jslib-cli)，下面类库均基于此开发。
+
+- ⚡️一个精简的发布订阅模式，支持先订阅后发布[@careteen/event-emitter](https://github.com/careteenL/event-emitter)
+- ⚡️对象/数组属性映射，主要解决前后端并行开发或前端先行开发带来的命名不统一问题[@careteen/match](https://github.com/careteenL/match)
+- ⚡️JavaScript类型检查，弥补typeof不足[@careteen/type](https://github.com/careteenL/type)
+- ⚡️提供一系列判断函数[@careteen/is](https://github.com/careteenL/is)，基于[@careteen/type](https://github.com/careteenL/type)
+- ⚡️一个更快、精简的最近最少使用缓存策略（LRU）[@careteen/lru](https://github.com/careteenL/lru)
+- 📚学习并仿写webpack[@careteen/webpack](https://github.com/careteenL/webpack)
+- 📚学习并仿写vue[@careteen/vue](https://github.com/careteenL/vue)
+- 📚学习并仿写koa[@careteen/koa](https://github.com/careteenL/koa)
+- 📚学习并仿写redux[@careteen/redux](https://github.com/careteenL/redux)
+- 📚学习并仿写http-server[@careteen/http-server](https://github.com/careteenL/http-server)
+
 ### 个人履历
 
 <!-- - [个人履历](./resume.md) -->

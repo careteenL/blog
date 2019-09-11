@@ -15,7 +15,7 @@
 #### 广告管理后台/运营位管理后台
 - 独立开发、抽离模板项目
 - vue全家桶：vue vuex vue-router axios element-ui
-- 实现mvvm、promise/A+、webpack、webpack-hmr
+- 实现mvvm、promise/A+、webpack、webpack-hmr、webpack-import
 - 研究dom-diff算法
 - 后端使用eggjs、配置nginx、编写shell脚本、搭建jenkins
 
