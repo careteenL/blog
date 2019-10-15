@@ -1,130 +1,194 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=GB2312" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- <meta name="viewport" content="user-scalable=no, initial-scale=1.0, width=900" /> -->
+	<meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge" />
   <script type="text/javascript" src="https://t.focus-res.cn/front-end/lib/jquery/jquery.1.12.4.js"></script>
   <!-- Bootstrap -->
   <link rel="stylesheet" href="https://t.focus-res.cn/front-end/lib/bootstrap-3.3.7/css/bootstrap.min.css">
   <script src="https://t.focus-res.cn/front-end/lib/bootstrap-3.3.7/js/bootstrap.min.js"></script>  
   <!-- swiper -->
+  <!-- <link rel="stylesheet" href="https://fe.focus.cn/fe-saas/summary-2018/assets/0121/lib/swiper.min.css">
+  <script src="https://fe.focus.cn/fe-saas/summary-2018/assets/0121/lib/swiper.min.js"></script> -->
   <link rel="stylesheet" href="https://t.focus-res.cn/front-end/lib/swiper-4.5.0/css/swiper.min.css">
   <script src="https://t.focus-res.cn/front-end/lib/swiper-4.5.0/js/swiper.min.js"></script>
   <!-- sohu focus iconfont -->
-  <link rel="stylesheet" type="text/css" href="//t.focus-res.cn/front-end/icon2018/iconfont.css">
+  <link rel="stylesheet" type="text/css" href="https://t.focus-res.cn/front-end/icon2018/iconfont.css">
   <!-- base css js -->
-  <link rel="stylesheet" type="text/css" href="./assets/base.css"/>
-  <script src="./assets/base.js"></script>
-  <title>å­”é›€åŸŽ-å­”é›€åŸŽæ˜¯ä»€ä¹ˆ</title>
+  <link rel="stylesheet" type="text/css" href="./ztimages/base-back.css"/>
+  <!-- <link rel="stylesheet" type="text/css" href="./ztimages/base.css"/> -->
+  <script src="./ztimages/base.js"></script>
+  <title>¿×È¸³Ç-¿×È¸³ÇÊÇÊ²Ã´</title>
 </head>
 <body>
+  <!-- Ô¼¶¨ÒÔ`action-`¿ªÍ·µÄÓÐ°ó¶¨ÊÂ¼þ -->
   <div class="root">
     <!-- header -->
     <div class="header">
       <div class="header-main">
-        <img class="header-logo" src="./assets/logo.png" alt="header-logo">
-        <div class="header-btn icon icon2018 icon2018-caidangengduozhankaimuluchoutihanbaobaoxian"></div>
+        <img class="header-logo" src="./ztimages/logo.png" alt="header-logo">
+        <div class="action-header-btn header-btn icon icon2018 icon2018-caidangengduozhankaimuluchoutihanbaobaoxian"></div>
       </div>
-      <div class="header-nav">
+      <div class="action-header-nav header-nav">
         <ul class="list-group">
-            <li class="list-group-item">å…³äºŽå­”é›€åŸŽ</li>
-            <li class="list-group-item">æ˜Žæ˜Ÿæ¥¼ç›˜</li>
-            <li class="list-group-item">æœ€æ–°åŠ¨æ€</li>
-            <li class="list-group-item">å“ç‰Œä»·å€¼</li>
-            <li class="list-group-item">å¤§äº‹è®°</li>
-            <li class="list-group-item">é¡¹ç›®åœ°å›¾</li>
+            <li class="list-group-item">¹ØÓÚ¿×È¸³Ç</li>
+            <li class="list-group-item">Ã÷ÐÇÂ¥ÅÌ</li>
+            <li class="list-group-item">×îÐÂ¶¯Ì¬</li>
+            <li class="list-group-item">Æ·ÅÆ¼ÛÖµ</li>
+            <li class="list-group-item">´óÊÂ¼Ç</li>
+            <li class="list-group-item">ÏîÄ¿µØÍ¼</li>
           </ul>
       </div>
     </div>
     <!-- main -->
     <div class="main">
-      <div class="swiper-container main-banner">
+      <div class="swiper-container main-banner swiper-main">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <img class="main-banner" src="./assets/bg-pingpaijiazhi.png" alt="pingpaijiazhi">
+            <img class="main-banner" src="./ztimages/bg-pingpaijiazhi.png" alt="pingpaijiazhi">
           </div>
           <div class="swiper-slide">
-            <img class="main-banner" src="./assets/bg-pingpaijiazhi.png" alt="pingpaijiazhi">
+            <img class="main-banner" src="./ztimages/bg-pingpaijiazhi.png" alt="pingpaijiazhi">
           </div>
           <div class="swiper-slide">
-            <img class="main-banner" src="./assets/bg-pingpaijiazhi.png" alt="pingpaijiazhi">
+            <img class="main-banner" src="./ztimages/bg-pingpaijiazhi.png" alt="pingpaijiazhi">
           </div>
         </div>
-        <!-- å¦‚æžœéœ€è¦åˆ†é¡µå™¨ -->
-        <div class="swiper-pagination"></div>
+        <!-- Èç¹ûÐèÒª·ÖÒ³Æ÷ -->
+        <div class="swiper-pagination pagination-main"></div>
       </div>
 
-      <ul class="main-nav">
-        <li class="nav-item active"><a href="/index.html">å­”é›€åŸŽæ˜¯ä»€ä¹ˆ</a></li>
-        <li class="nav-item"><a href="/story.html">å“ç‰Œå¤§äº‹è®°</a></li>
-        <li class="nav-item"><a href="#">å­”é›€åŸŽè§†é¢‘</a></li>
+      <ul class="action-main-nav main-nav">
+        <li class="nav-item active" data-show="main-is-what">¿×È¸³ÇÊÇÊ²Ã´</li>
+        <li class="nav-item" data-show="main-story">Æ·ÅÆ´óÊÂ¼Ç</li>
+        <li class="nav-item" data-show="main-video">¿×È¸³ÇÊÓÆµ</li>
       </ul>
-      <div class="main-content">
+      <!-- ÖÐ¼äÖ÷ÒªÄÚÈÝ -->
+      <div class="main-content main-is-what active">
+        <!-- ¹ØÓÚ¿×È¸³Ç -->
         <div class="detail-desc">
-          <img class="detail-desc__img" src="./assets/detail-desc.png" alt="detail-desc">
-          <p class="detail-desc__title">å­”é›€åŸŽï¼šåˆ›é€ ç¾Žå¥½ç”Ÿæ´»</p>
+          <img class="detail-desc__img" src="./ztimages/detail-desc.png" alt="detail-desc">
+          <p class="detail-desc__title">¿×È¸³Ç£º´´ÔìÃÀºÃÉú»î</p>
           <p class="detail-desc__info">
-            <span>å­”é›€åŸŽå“ç‰Œåˆ›ç«‹äºŽ2003å¹´ï¼ŒåŽ†ç»16è½½å¯¹äºŽå®œå±…åŸŽå¸‚çš„æŽ¢ç´¢ã€å®žè·µä¸Žæ²‰æ·€ï¼Œç”¨ç”Ÿæ€åº•æ¿â€¦</span>
-            <span class="detail-desc__info-look">æŸ¥çœ‹è¯¦æƒ…</span>
+            <span>¿×È¸³ÇÆ·ÅÆ´´Á¢ÓÚ2003Äê£¬Àú¾­16ÔØ¶ÔÓÚÒË¾Ó³ÇÊÐµÄÌ½Ë÷¡¢Êµ¼ùÓë³Áµí£¬ÓÃÉúÌ¬µ×°å¡­</span>
+            <span class="detail-desc__info-look">
+              <span>²é¿´ÏêÇé</span>
+              <i class="icon icon2018 icon2018-xiangyouyuanjiantouyoujiantouxiangyouxianxing"></i>
+            </span>
           </p>
         </div>
+        <!-- Ã÷ÐÇÂ¥ÅÌ -->
+        <div class="detail-line">
+          <div class="detail-line__header" style="height:2.08rem;background:url(ztimages/mingxing_02.png);"></div>
+          <div class="swiper-container swiper-mxlp">
+            <script type="text/javascript">
+              if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+              } else { // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+              }
+              xmlhttp.open("GET","ztimages/mingxing.xml",false);
+              xmlhttp.send();
+              xmlDoc=xmlhttp.responseXML;
+              document.write("<div class='swiper-wrapper'>");
+              var x=xmlDoc.getElementsByTagName("KAPIAN");
+              for (i=0;i<x.length;i++) {
+                document.write("<div class='swiper-slide swiper-slide-mxlp imagesbox'>");
+                document.write("<a href='");
+                document.write(x[i].getElementsByTagName("LINK")[0].childNodes[0].nodeValue);
+                document.write("' target='_blank'>");
+                document.write("<img src='ztimages/");
+                document.write(x[i].getElementsByTagName("PICTURE")[0].childNodes[0].nodeValue);
+                document.write("'>");
+                document.write("</a>");
+                document.write("</div>");
+              }
+              document.write("</div>");
+            </script>
+            <div class="swiper-pagination pagination-mxlp"></div>
+          </div>
+          <script>
+            var swiper = new Swiper('.swiper-mxlp', {
+              spaceBetween: 30,
+              centeredSlides: true,
+              autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+              },
+              pagination: {
+                el: '.pagination-mxlp',
+                clickable: true,
+              },
+            });
+          </script>
+        </div>
       </div>
+      <!-- Æ·ÅÆ´óÊÂ¼Ç -->
+      <div class="main-content main-story">
+          <a href="#"><img class="story-img" src="./ztimages/story-1.png" alt="story-1"></a>
+        </div>
+        <!-- ¿×È¸³ÇÊÓÆµ -->
+        <div class="main-content main-video">
+            <a href="#"><img class="video-img" src="./ztimages/video-1.png" alt="video-1"></a>
+            <a href="#"><img class="video-img" src="./ztimages/video-1.png" alt="video-1"></a>
+        </div>
     </div>
     <!-- footer -->
     <div class="footer">
       <p class="footer-title">PECOCK CITY</p>
       <div class="footer-content">
         <p class="footer-line">
-          <span class="footer-line__left">å…³äºŽå­”é›€åŸŽ</span>
-          <em>ä¸¨</em>
-          <a class="footer-line__item" href="#">èµ°è¿›å­”é›€åŸŽ</a>
-          <a class="footer-line__item" href="#">å‘å±•åŽ†åŸŽ</a>
-          <a class="footer-line__item" href="#">å­”é›€åŸŽè§†é¢‘</a>
+          <span class="footer-line__left">¹ØÓÚ¿×È¸³Ç</span>
+          <em>Ø­</em>
+          <a class="footer-line__item" href="#">×ß½ø¿×È¸³Ç</a>
+          <a class="footer-line__item" href="#">·¢Õ¹Àú³Ç</a>
+          <a class="footer-line__item" href="#">¿×È¸³ÇÊÓÆµ</a>
         </p>
         <p class="footer-line">
-          <span class="footer-line__left">å­”é›€åŸŽé¡¹ç›®</span>
-          <em>ä¸¨</em>
-          <a class="footer-line__item" href="#">çŽ¯äº¬</a>
-          <a class="footer-line__item" href="#">ä¸œåŒ—å’ŒåŽåŒ—</a>
-          <a class="footer-line__item" href="#">åŽä¸œ</a>
-          <a class="footer-line__item" href="#">åŽä¸­å’ŒåŽå—</a>
+          <span class="footer-line__left">¿×È¸³ÇÏîÄ¿</span>
+          <em>Ø­</em>
+          <a class="footer-line__item" href="#">»·¾©</a>
+          <a class="footer-line__item" href="#">¶«±±ºÍ»ª±±</a>
+          <a class="footer-line__item" href="#">»ª¶«</a>
+          <a class="footer-line__item" href="#">»ªÖÐºÍ»ªÄÏ</a>
         </p>
         <p class="footer-line">
-          <span class="footer-line__left">äº§å“ä¸ŽæœåŠ¡</span>
-          <em>ä¸¨</em>
-          <a class="footer-line__item" href="#">äº§å“ç†å¿µ</a>
-          <a class="footer-line__item" href="#">å®¢æœä¸­å¿ƒ</a>
+          <span class="footer-line__left">²úÆ·Óë·þÎñ</span>
+          <em>Ø­</em>
+          <a class="footer-line__item" href="#">²úÆ·ÀíÄî</a>
+          <a class="footer-line__item" href="#">¿Í·þÖÐÐÄ</a>
         </p>
         <p class="footer-line">
-          <span class="footer-line__left">äººåŠ›èµ„æº&nbsp;&nbsp;&nbsp;</span>
-          <em>ä¸¨</em>
-          <a class="footer-line__item" href="#">ç¤¾ä¼šæ‹›è˜</a>
-          <a class="footer-line__item" href="#">è‡ªé”€å›¢é˜Ÿæ‹›è˜</a>
-          <a class="footer-line__item" href="#">åŸ¹è®­å‘å±•</a>
+          <span class="footer-line__left">ÈËÁ¦×ÊÔ´&nbsp;&nbsp;&nbsp;</span>
+          <em>Ø­</em>
+          <a class="footer-line__item" href="#">Éç»áÕÐÆ¸</a>
+          <a class="footer-line__item" href="#">×ÔÏúÍÅ¶ÓÕÐÆ¸</a>
+          <a class="footer-line__item" href="#">ÅàÑµ·¢Õ¹</a>
         </p>
         <p class="footer-line">
-          <span class="footer-line__left mr-50">æœ€æ–°åŠ¨æ€</span>
-          <span class="footer-line__left mr-50">è”ç³»æˆ‘ä»¬</span>
-          <span class="footer-line__left">æ³•å¾‹å£°æ˜Ž</span>
+          <span class="footer-line__left mr-50">×îÐÂ¶¯Ì¬</span>
+          <span class="footer-line__left mr-50">ÁªÏµÎÒÃÇ</span>
+          <span class="footer-line__left">·¨ÂÉÉùÃ÷</span>
         </p>
         <p class="footer-line footer-line-img">
-          <span class="footer-line__left">å…³æ³¨æˆ‘ä»¬&nbsp;&nbsp;&nbsp;</span>
-          <em>ä¸¨</em>
+          <span class="footer-line__left">¹Ø×¢ÎÒÃÇ&nbsp;&nbsp;&nbsp;</span>
+          <em>Ø­</em>
           <a class="footer-line__item" href="#">
-            <img class="footer-line__qcode" src="./assets/qcode.png" alt="qcode">
+            <img class="footer-line__qcode" src="./ztimages/qcode.png" alt="qcode">
           </a>
         </p>
         <p class="footer-line">
           <span class="footer-line__left">SHARE TO</span>
-          <em>ä¸¨</em>
+          <em>Ø­</em>
           <a class="footer-line__item icon icon2018 icon2018-fenxiangweixinpengyouquansharemianxing" href="#"></a>
           <a class="footer-line__item icon icon2018 icon2018-fenxiangweiboxinlangsinashare1" href="#"></a>
           <a class="footer-line__item icon icon2018 icon2018-fenxiangQQqqkongjianqzoneten1" href="#"></a>
           <a class="footer-line__item icon icon2018 icon2018-fenxiangdoubanshareyuanxingmianxing" href="#"></a>
         </p>
       </div>
-      <img class="footer-logo-bottom" src="./assets/logo-bottom.png" alt="footer-logo-bottom">
+      <img class="footer-logo-bottom" src="./ztimages/logo-bottom.png" alt="footer-logo-bottom">
     </div>
   </div>
 </body>
