@@ -1,101 +1,108 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=GB2312" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- <meta name="viewport" content="user-scalable=no, initial-scale=1.0, width=900" /> -->
+	<meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge" />
   <script type="text/javascript" src="https://t.focus-res.cn/front-end/lib/jquery/jquery.1.12.4.js"></script>
-  <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-  <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>  
-  
-  <title>孔雀城</title>
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://t.focus-res.cn/front-end/lib/bootstrap-3.3.7/css/bootstrap.min.css">
+  <script src="https://t.focus-res.cn/front-end/lib/bootstrap-3.3.7/js/bootstrap.min.js"></script>  
+  <!-- swiper -->
+  <!-- <link rel="stylesheet" href="https://fe.focus.cn/fe-saas/summary-2018/assets/0121/lib/swiper.min.css">
+  <script src="https://fe.focus.cn/fe-saas/summary-2018/assets/0121/lib/swiper.min.js"></script> -->
+  <link rel="stylesheet" href="https://t.focus-res.cn/front-end/lib/swiper-4.5.0/css/swiper.min.css">
+  <script src="https://t.focus-res.cn/front-end/lib/swiper-4.5.0/js/swiper.min.js"></script>
   <!-- sohu focus iconfont -->
-  <link rel="stylesheet" type="text/css" href="//t.focus-res.cn/front-end/icon2018/iconfont.css">
-  <!-- base css -->
-  <link rel="stylesheet" type="text/css" href="./assets/base.css" />
-  <script src="./assets/base.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://t.focus-res.cn/front-end/icon2018/iconfont.css">
+  <!-- base css js -->
+  <!-- <link rel="stylesheet" type="text/css" href="./ztimages/base.css"/> -->
+  <link rel="stylesheet" type="text/css" href="./ztimages/base-back.css"/>
+  <script src="./ztimages/base.js"></script>
+  <title>��ȸ��-���ڿ�ȸ��</title>
 </head>
 <body>
+  <!-- Լ����`action-`��ͷ���а��¼� -->
   <div class="root">
+    <!-- header -->
     <div class="header">
       <div class="header-main">
-        <p class="header-logo text-center block-center">孔雀城</p>
-        <div class="header-btn icon icon2018 icon2018-caidangengduozhankaimuluchoutihanbaobaoxian"></div>
+        <a href="./index.html" class="header-back icon icon2018 icon2018-fanhuizuojiantouxiangzuoshangyibuxianxing"></a>
+        <img class="header-logo" src="./ztimages/logo.png" alt="header-logo">
+        <div class="action-header-btn header-btn icon icon2018 icon2018-caidangengduozhankaimuluchoutihanbaobaoxian"></div>
       </div>
-      <div class="header-nav">
+      <div class="action-header-nav header-nav">
         <ul class="list-group">
-            <li class="list-group-item">关于孔雀城</li>
-            <li class="list-group-item">明星楼盘</li>
-            <li class="list-group-item">最新动态</li>
-            <li class="list-group-item">品牌价值</li>
-            <li class="list-group-item">大事记</li>
-            <li class="list-group-item">项目地图</li>
+            <li class="list-group-item">���ڿ�ȸ��</li>
+            <li class="list-group-item">����¥��</li>
+            <li class="list-group-item">���¶�̬</li>
+            <li class="list-group-item">Ʒ�Ƽ�ֵ</li>
+            <li class="list-group-item">���¼�</li>
+            <li class="list-group-item">��Ŀ��ͼ</li>
           </ul>
       </div>
     </div>
+    <!-- main -->
     <div class="main">
-      <img class="main-banner" src="./assets/bg-pingpaijiazhi.png" alt="pingpaijiazhi">
-
-      <ul class="main-nav">
-        <li class="nav-item active"><a href="/index.html">孔雀城是什么</a></li>
-        <li class="nav-item"><a href="/story.html">品牌大事记</a></li>
-        <li class="nav-item"><a href="#">孔雀城视频</a></li>
-      </ul>
+      <div class="main-detail">
+        <img class="detail-img" src="./ztimages/detail_1.png" alt="detail_1">
+      </div>
     </div>
+    <!-- footer -->
     <div class="footer">
       <p class="footer-title">PECOCK CITY</p>
-      <p class="footer-line">
-        <span class="footer-line__left">关于孔雀城</span>
-        <em>丨</em>
-        <a class="footer-line__item" href="#">走进孔雀城</a>
-        <a class="footer-line__item" href="#">发展历城</a>
-        <a class="footer-line__item" href="#">孔雀城视频</a>
-      </p>
-      <p class="footer-line">
-        <span class="footer-line__left">孔雀城项目</span>
-        <em>丨</em>
-        <a class="footer-line__item" href="#">环京</a>
-        <a class="footer-line__item" href="#">东北和华北</a>
-        <a class="footer-line__item" href="#">华东</a>
-        <a class="footer-line__item" href="#">华中和华南</a>
-      </p>
-      <p class="footer-line">
-        <span class="footer-line__left">产品与服务</span>
-        <em>丨</em>
-        <a class="footer-line__item" href="#">产品理念</a>
-        <a class="footer-line__item" href="#">客服中心</a>
-      </p>
-      <p class="footer-line">
-        <span class="footer-line__left">人力资源&nbsp;&nbsp;&nbsp;</span>
-        <em>丨</em>
-        <a class="footer-line__item" href="#">社会招聘</a>
-        <a class="footer-line__item" href="#">自销团队招聘</a>
-        <a class="footer-line__item" href="#">培训发展</a>
-      </p>
-      <p class="footer-line">
-        <span class="footer-line__left mr-50">最新动态</span>
-        <span class="footer-line__left mr-50">联系我们</span>
-        <span class="footer-line__left">法律声明</span>
-      </p>
-      <p class="footer-line footer-line-img">
-        <span class="footer-line__left">关注我们&nbsp;&nbsp;&nbsp;</span>
-        <em>丨</em>
-        <a class="footer-line__item" href="#">
-          <img class="footer-line__qcode" src="./assets/bg-pingpaijiazhi.png" alt="">
-        </a>
-      </p>
-      <p class="footer-line">
-        <span class="footer-line__left">SHARE TO</span>
-        <em>丨</em>
-        <a class="footer-line__item icon icon2018 icon2018-fenxiangweixinpengyouquansharemianxing" href="#"></a>
-        <a class="footer-line__item icon icon2018 icon2018-fenxiangweiboxinlangsinashare1" href="#"></a>
-        <a class="footer-line__item icon icon2018 icon2018-fenxiangQQqqkongjianqzoneten1" href="#"></a>
-        <a class="footer-line__item icon icon2018 icon2018-fenxiangdoubanshareyuanxingmianxing" href="#"></a>
-      </p>
+      <div class="footer-content">
+        <p class="footer-line">
+          <span class="footer-line__left">���ڿ�ȸ��</span>
+          <em>ح</em>
+          <a class="footer-line__item" href="#">�߽���ȸ��</a>
+          <a class="footer-line__item" href="#">��չ����</a>
+          <a class="footer-line__item" href="#">��ȸ����Ƶ</a>
+        </p>
+        <p class="footer-line">
+          <span class="footer-line__left">��ȸ����Ŀ</span>
+          <em>ح</em>
+          <a class="footer-line__item" href="#">����</a>
+          <a class="footer-line__item" href="#">�����ͻ���</a>
+          <a class="footer-line__item" href="#">����</a>
+          <a class="footer-line__item" href="#">���кͻ���</a>
+        </p>
+        <p class="footer-line">
+          <span class="footer-line__left">��Ʒ�����</span>
+          <em>ح</em>
+          <a class="footer-line__item" href="#">��Ʒ����</a>
+          <a class="footer-line__item" href="#">�ͷ�����</a>
+        </p>
+        <p class="footer-line">
+          <span class="footer-line__left">������Դ&nbsp;&nbsp;&nbsp;</span>
+          <em>ح</em>
+          <a class="footer-line__item" href="#">�����Ƹ</a>
+          <a class="footer-line__item" href="#">�����Ŷ���Ƹ</a>
+          <a class="footer-line__item" href="#">��ѵ��չ</a>
+        </p>
+        <p class="footer-line">
+          <span class="footer-line__left mr-50">���¶�̬</span>
+          <span class="footer-line__left mr-50">��ϵ����</span>
+          <span class="footer-line__left">��������</span>
+        </p>
+        <p class="footer-line footer-line-img">
+          <span class="footer-line__left">��ע����&nbsp;&nbsp;&nbsp;</span>
+          <em>ح</em>
+          <a class="footer-line__item" href="#">
+            <img class="footer-line__qcode" src="./ztimages/qcode.png" alt="qcode">
+          </a>
+        </p>
+        <p class="footer-line">
+          <span class="footer-line__left">SHARE TO</span>
+          <em>ح</em>
+          <a class="footer-line__item icon icon2018 icon2018-fenxiangweixinpengyouquansharemianxing" href="#"></a>
+          <a class="footer-line__item icon icon2018 icon2018-fenxiangweiboxinlangsinashare1" href="#"></a>
+          <a class="footer-line__item icon icon2018 icon2018-fenxiangQQqqkongjianqzoneten1" href="#"></a>
+          <a class="footer-line__item icon icon2018 icon2018-fenxiangdoubanshareyuanxingmianxing" href="#"></a>
+        </p>
+      </div>
+      <img class="footer-logo-bottom" src="./ztimages/logo-bottom.png" alt="footer-logo-bottom">
     </div>
   </div>
 </body>

@@ -25,6 +25,12 @@ $(document).ready(function(){
     // pagination: { // 如果需要分页器
     //   el: '.pagination-main',
     // },
+    spaceBetween: 30,
+    centeredSlides: true,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
     pagination: {
       el: '.pagination-main',
       type: 'custom',
@@ -86,10 +92,10 @@ $(document).ready(function(){
       delay: 2500,
       disableOnInteraction: false,
     },
-    pagination: {
-      el: '.pagination-mxlp',
-      clickable: true,
-    },
+    // pagination: {
+    //   el: '.pagination-mxlp',
+    //   clickable: true,
+    // },
     pagination: {
       el: '.pagination-mxlp',
       type: 'custom',
