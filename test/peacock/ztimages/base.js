@@ -20,11 +20,28 @@
 // 操作dom
 $(document).ready(function(){
   // banner swiper
-  var mySwiper = new Swiper ('.swiper-main', {
+  var swiperMain = new Swiper ('.swiper-main', {
     loop: true, // 循环模式选项
-    pagination: { // 如果需要分页器
+    // pagination: { // 如果需要分页器
+    //   el: '.pagination-main',
+    // },
+    pagination: {
       el: '.pagination-main',
-    },
+      type: 'custom',
+      autoplayDisableOnInteraction : false,
+      renderCustom: function (swiper, current, total) {
+        var paginationHtml = " ";
+        for (var i = 0; i < total; i++) {
+          // 判断是不是激活焦点，是的话添加active类，不是就只添加基本样式类
+          if (i === (current - 1)) {
+            paginationHtml += '<span class="swiper-pagination-customs swiper-pagination-customs-active"></span>';
+          }else{
+            paginationHtml += '<span class="swiper-pagination-customs"></span>';
+          }						  
+        }
+        return paginationHtml;
+      },
+    }
   })
   var $headerBtn =  $('.action-header-btn')
   var $headerNav =  $('.action-header-nav')
@@ -61,4 +78,34 @@ $(document).ready(function(){
         break;
     }
   })
+  // 明星楼盘swiper
+  var swiperMxlp = new Swiper('.swiper-mxlp', {
+    spaceBetween: 30,
+    centeredSlides: true,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: '.pagination-mxlp',
+      clickable: true,
+    },
+    pagination: {
+      el: '.pagination-mxlp',
+      type: 'custom',
+      autoplayDisableOnInteraction : false,
+      renderCustom: function (swiper, current, total) {
+        var paginationHtml = " ";
+        for (var i = 0; i < total; i++) {
+          // 判断是不是激活焦点，是的话添加active类，不是就只添加基本样式类
+          if (i === (current - 1)) {
+            paginationHtml += '<span class="swiper-pagination-customs-mxlp swiper-pagination-customs-mxlp-active"></span>';
+          }else{
+            paginationHtml += '<span class="swiper-pagination-customs-mxlp"></span>';
+          }						  
+        }
+        return paginationHtml;
+      },
+    }
+  });  
 });
