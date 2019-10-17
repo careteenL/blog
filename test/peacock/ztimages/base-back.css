@@ -456,6 +456,37 @@ a:hover {
   width: 1.2rem;
   height: 1.2rem;
 }
+/* 活力住区 */
+.main-wlzq {
+  width: 7.4rem;
+  margin: auto;
+}
+/* 安心住区 */
+.main-axzq {
+  width: 7.4rem;
+  margin: auto;
+}
+/* 健康住区 */
+.main-jkzq {
+  width: 7.4rem;
+  margin: auto;
+}
+.main-img {
+  width: 7.4rem;
+  margin-bottom: 0.3rem;
+}
+.mb-50 {
+  margin-bottom: 0.5rem;
+}
+.mb-70 {
+  margin-bottom: 0.7rem;
+}
+.mb-100 {
+  margin-bottom: 1rem;
+}
+.main-nav.mt-100 {
+  margin-top: 1rem;
+}
 /* footer */
 .footer {
   background: #111133;

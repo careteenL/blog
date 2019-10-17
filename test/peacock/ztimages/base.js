@@ -52,6 +52,7 @@ $(document).ready(function(){
   var $headerBtn =  $('.action-header-btn')
   var $headerNav =  $('.action-header-nav')
   var $mainNav =  $('.action-main-nav')
+  var $mainNavPpjz =  $('.action-main-nav-ppjz')
   // 头部导航栏toggle
   $headerBtn.click(function() {
     if ($headerNav.hasClass('nav-block')) {
@@ -79,6 +80,30 @@ $(document).ready(function(){
         $('.main-video').addClass('active')
         $('.main-story').removeClass('active')
         $('.main-is-what').removeClass('active')        
+        break;
+      default:
+        break;
+    }
+  })
+  // 中间内容区域的切换
+  $mainNavPpjz.delegate('.nav-item', 'click', function() {
+    $(this).addClass('active').siblings().removeClass('active')
+    var navAction = this.dataset.show
+    switch (navAction) { // 展示对应的内容
+      case 'main-wlzq':
+        $('.main-wlzq').addClass('active')
+        $('.main-axzq').removeClass('active')
+        $('.main-jkzq').removeClass('active')        
+        break;
+      case 'main-axzq':
+        $('.main-axzq').addClass('active')
+        $('.main-wlzq').removeClass('active')
+        $('.main-jkzq').removeClass('active')        
+        break;
+      case 'main-jkzq':
+        $('.main-jkzq').addClass('active')
+        $('.main-axzq').removeClass('active')
+        $('.main-wlzq').removeClass('active')        
         break;
       default:
         break;
