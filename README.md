@@ -69,5 +69,5 @@
 
 ### 联系我
 
-- 微信（猎头勿扰）
+- 微信(careteenfox)（猎头勿扰）
 ![wechart-qrcode](./assets/wechart-qrcode.jpeg)
