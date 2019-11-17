@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Your application</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="importmap-type" content="systemjs-importmap">
+    <script type="systemjs-importmap">
+      {
+        "imports": {
+          "baidu": "https://single-spa-playground.org/",
+          "weixin": "https://www.zhihu.com/",
+          "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@4.3.7/lib/system/single-spa.min.js"
+        }
+      }
+    </script>
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/single-spa@4.3.7/lib/system/single-spa.min.js" as="script" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@1.8.0/dist/import-map-overrides.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/5.0.0/system.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/5.0.0/extras/amd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/5.0.0/extras/named-exports.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/5.0.0/extras/named-register.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/5.0.0/extras/use-default.min.js"></script>
+  </head>
+  <body>
+    <script>
+      System.import('single-spa').then(function (singleSpa) {
+        singleSpa.registerApplication(
+          'baidu',
+          () => System.import('baidu'),
+          location => location.pathname.startsWith('/')
+        );
+        singleSpa.registerApplication(
+          'weixin',
+          () => System.import('weixin'),
+          location => location.pathname.startsWith('/')
+        );
+        singleSpa.start();
+      })
+    </script>
+    <!-- See https://github.com/joeldenning/import-map-overrides#user-interface  -->
+    <import-map-overrides-full show-when-local-storage="overrides-ui"></import-map-overrides-full>
+  </body>
+</html>
