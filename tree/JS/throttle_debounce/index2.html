@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie = edge" />
+  <title>debounce</title>
+  <style>
+    div {
+      background: yellow;
+      color: red;
+      width: 100px;
+      height: 40px;
+      border: 1px solid red
+    }
+  </style>
+</head>
+
+<body>
+  <div id="btn">点击</div>
+  <script>
+    function debounce(func,wait,immediate) {
+      let timeout;
+      return function () {
+        clearTimeout(timeout);
+        if(immediate){
+          let callNow = !timeout;
+          if(callNow) func.apply(this, arguments);
+        }
+        timeout = setTimeout(() => {
+          func.apply(this,arguments);
+          timeout = null;
+        }, wait);
+      }
+    }
+    function logger(e) {
+      console.log('logger',e);
+    }
+    // 第三个参数 表示首次 先触发一下
+    btn.addEventListener('click', debounce(logger,1000,false));
+
+    
+  </script>
+</body>
+
+</html>

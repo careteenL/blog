@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>throttle</title>
+  <style>
+    button {
+      width: 200px;
+      height: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 节流我们快速点击 我可以配置1s内的点击算一次 -->
+  <button id="btn">快速点击</button>
+  <script>
+    // 节流 throttle
+    let btn = document.getElementById('btn');
+    // function throttle(func, wait) {
+    //   let previous = 0; // 上一次的默认值
+    //   return function () {
+    //     let now = Date.now();
+    //     if (now - previous > wait) {
+    //       func.apply(this,arguments);
+    //       previous = now;
+    //     }
+    //   }
+    // }
+    function throttle(func, wait, options) {
+      // trailing 最后一次应该触发(默认触发)；
+      let args, context, previous = 0, timeout;
+      let later = function () {
+        previous = options.leading === false ? 0 : Date.now();
+        func.apply(context, args);
+        args = context = null
+      }
+      let throttled = function () {
+        args = arguments;
+        context = this;
+        let now = Date.now(); // 现在的时间
+        if (!previous && options.leading === false) previous = now;
+        let remaning = wait - (now - previous);
+        if (remaning <= 0) { // 第一次
+          if (timeout) {
+            clearTimeout(timeout);
+            timeout = null;
+          }
+          func.apply(context, args);
+          previous = now;
+        } else if (!timeout && options.trailing !== false) {
+          timeout = setTimeout(later, remaning);
+        }
+      }
+      return throttled;
+    }
+    function logger() {
+      console.log('logger');
+    }
+    // 延迟第一次点击 是不生效的
+    btn.addEventListener('click', throttle(logger, 1000, { leading: false }));
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie = edge" />
+  <title>throttle</title>
+  <style>
+    div {
+      background: yellow;
+      color: red;
+      width: 100px;
+      height: 40px;
+      border: 1px solid red
+    }
+  </style>
+  <script src="./debounce.js"></script>
+  <script src="./throttle.js"></script>
+</head>
+<body>
+  <div id="btn">点击</div>
+  <script>
+    function logger(e) {
+      console.log('logger',e);
+    }
+    // 第三个参数 表示首次 先触发一下
+    btn.addEventListener('click', throttle(logger,1000,false));
+
+    
+  </script>
+</body>
+
+</html>
