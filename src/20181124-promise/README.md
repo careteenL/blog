@@ -457,6 +457,7 @@ class Promise {
     // 实现链式调用主要的靠的就是这个promise
     promise2 = new Promise((resolve, reject) => {
       if (self.status === FULFILLED) {
+        // 此方法内使用`setTimeout`是为了`_resolvePromise`中能使用到`promise2即自身`
         setTimeout(() => {
           try {
             // 这个返回值是成功函数的执行结果

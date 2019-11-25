@@ -169,6 +169,18 @@ class Promise {
     })
   }
 
+  /**
+   * @desc 不管状态如何都会执行
+   * @param {Function} callback
+   * @return {Promise} 会保留上一个then的状态
+   */
+  // finally(callback) {
+  //   return this.then(
+  //     value => Promise.resolve(callback()).then(() => value),
+  //     reason => Promise.resolve(callback().then(() => {throw reason}))
+  //   )
+  // }
+
   static resolve (value) {
     return new Promise(resolve => {
       resolve(value)
@@ -204,7 +216,7 @@ class Promise {
             processData(i, data) // 把索引和数据 对应起来 方便使用
           }, reject)
         }else{
-            processData(i,promise)
+          processData(i,promise)
         }
       }
     })    
