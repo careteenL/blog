@@ -32,9 +32,9 @@ function co (it) {
       if(done){
         resolve(value)
       }else{
-        value.then((data) => {
+        Promise.resolve(value).then((data) => { // 都包装成promise
           next(data)
-        },reject)
+        }, reject)
       }
     }
     next()

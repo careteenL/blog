@@ -14,6 +14,8 @@
       - 如何判断并解决promise循环引用的问题？
       - 如何实现promise的finally方法？
       - 如何实现promise的all方法？
+      - 如何终止Promise?
+      - 如何中断Promise调用链?
   - [generator用法](#generator用法)
   - [async-await](#async-await)
 
@@ -949,6 +951,104 @@ Promise.race([
 ```
 
 [⬆️回到顶部](#异步发展流程)
+
+#### 中断Promise调用链
+
+下面是一个Promise多条链式调用
+```js
+let p = new Promise((resolve,reject) => {
+  setTimeout(() => {
+    resolve('step1')
+  }, 1000)
+})
+
+p.then((data) => {
+  console.log(data)
+  return 'step2'
+}).then((data) => {
+  console.log(data)
+  return 'step3'
+}).then((data) => {
+  console.log(data)
+  return 'step4'
+}).catch((data) => {
+  console.log(data, 'catch')
+}).finally((data) => {
+  console.log(data, 'finished')
+})
+```
+此时我们期望步骤三中如果满足一定条件时终止步骤四的执行直接走最终的finished
+```js
+// 中断Promise调用链
+const needBreak = true
+p.then((data) => {
+  console.log(data)
+  return 'step2'
+}).then((data) => {
+  console.log(data)
+  if (needBreak) {
+    // 抛出异常or Promise.reject
+    // throw 'break'
+    return Promise.reject('break')
+  }
+  return 'step3'
+}).then((data) => {
+  console.log(data)
+  return 'step4'
+}).catch((data) => {
+  console.log(data, 'catch')
+}).finally((data) => {
+  console.log(data, 'finished')
+})
+```
+其中有两种方式
+- 抛出异常
+- Promise.reject
+
+#### 终止Promise
+
+期望终止一个Promise，不要其返回值
+```js
+// 模拟一个耗时1000的接口
+let fetchData = new Promise((resolve,reject) => {
+  setTimeout(() => {
+    resolve('result')
+  }, 1000)
+})
+```
+离开页面时期望将没有完成的promise取消掉，也就是不期望他有返回值
+```js
+// 使用Promise.race去取消一个Promise
+let cancelable = (promise, token) => {
+  Promise.race([
+    promise,
+    new Promise((_, reject) => {
+      token.cancel = () => {
+        reject(new Error('cancel'))
+      }
+    })
+  ]).catch(e => {
+    console.log(e)
+  })
+}
+```
+使用
+```js
+// 调用接口时包裹一层
+const token = {}
+cancelable(fetchData.then(res => {
+  console.log(res, 'success')
+}), token)
+
+// 离开页面时期望将没有完成的promise取消掉，也就是不期望他有返回值
+const leavePage = () => {
+  setTimeout(_ => {
+    token.cancel()
+  }, 400)
+}
+
+leavePage()
+```
 
 ### generator用法
 
