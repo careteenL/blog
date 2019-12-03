@@ -46,10 +46,16 @@
 
 不定时更新...
 
+- 2019年12月
+  - [在vue和element-ui的table中实现分页复选](https://github.com/careteenL/blog/issues/7) 图片失效见[segment](https://segmentfault.com/a/1190000021185922)
+  
+- 2019年11月
+  - [微前端实现详解](https://github.com/careteenL/blog/issues/6)
+  
 - 2019年9月
   - [前端面试-实现一个简版koa](https://github.com/careteenL/blog/issues/5)
   - [聊聊编码那些事，顺带实现base64](https://github.com/careteenL/blog/issues/4)
-  - [搞懂webpack热更新原理](https://github.com/careteenL/webpack-hmr)
+  - [搞懂webpack热更新原理](https://github.com/careteenL/webpack-hmr) 图片失效见[segment](https://segmentfault.com/a/1190000020310371?_ea=25640433)
 
 - 2019年8月
   - [前端算法-解析URL字符串](https://github.com/careteenL/blog/issues/3)
