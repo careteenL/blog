@@ -261,10 +261,10 @@ a:hover {
   margin-left: 0.1rem;
 }
 /* mxlp */
-.main-is-what .detail-line {
+.detail-line {
   margin-bottom: 0.3rem;
 }
-.main-is-what .detail-line .detail-line__header {
+.detail-line .detail-line__header {
   margin:auto;
   position:relative;
   width: 9rem;
@@ -273,22 +273,22 @@ a:hover {
   background-size: contain;
   background-repeat: no-repeat;
 }
-.main-is-what .detail-line .detail-line__header.detail-line__mxlp {
+.detail-line .detail-line__header.detail-line__mxlp {
   background-image: url(./mxlp_header.png);
 }
-.main-is-what .detail-line .detail-line__header.detail-line__zxdt {
+.detail-line .detail-line__header.detail-line__zxdt {
   background-image: url(./zxdt_header.png);
 }
-.main-is-what .detail-line .detail-line__header.detail-line__ppjz {
+.detail-line .detail-line__header.detail-line__ppjz {
   background-image: url(./ppjz_header.jpg);
 }
-.main-is-what .detail-line .detail-line__header.detail-line__dsj {
+.detail-line .detail-line__header.detail-line__dsj {
   background-image: url(./dsj_header.jpg);
 }
-.main-is-what .detail-line .detail-line__header.detail-line__xmdt {
+.detail-line .detail-line__header.detail-line__xmdt {
   background-image: url(./xmdt_header.jpg);
 }
-.main-is-what .detail-line .detail-line__header .detail-line__header-link {
+.detail-line .detail-line__header .detail-line__header-link {
   width:2.20rem;
   height:0.48rem;
   background-position: center;
@@ -298,20 +298,20 @@ a:hover {
   margin-right:0.85rem;
   margin-top:0.70rem;  
 }
-.main-is-what .detail-line .detail-line__header .detail-line__header-link.detail-line__header-mxlp {
+.detail-line .detail-line__header .detail-line__header-link.detail-line__header-mxlp {
   background-image:url(./mxlp_more.png);
 }
-.main-is-what .detail-line .detail-line__header .detail-line__header-link.detail-line__header-zxdt {
+.detail-line .detail-line__header .detail-line__header-link.detail-line__header-zxdt {
   background-image:url(./zxdt_more.png);
 }
-.main-is-what .detail-line .detail-line__header .detail-line__header-link.detail-line__header-ppjz {
+.detail-line .detail-line__header .detail-line__header-link.detail-line__header-ppjz {
   background-image:url(./ppjz_more.png);
   width:1.70rem;
 }
-.main-is-what .detail-line .detail-line__header .detail-line__header-link.detail-line__header-xmdt {
+.detail-line .detail-line__header .detail-line__header-link.detail-line__header-xmdt {
   background-image:url(./xmdt_more.png);
 }
-.main-is-what .detail-line .swiper-container-mxlp {
+.detail-line .swiper-container-mxlp {
   width: 7.4rem;
   height: 5.55rem;
 }
@@ -455,6 +455,10 @@ a:hover {
   display: inline-block;
   width: 1.2rem;
   height: 1.2rem;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url(./icon-play.png);
 }
 /* 活力住区 */
 .main-wlzq {
@@ -520,6 +524,7 @@ a:hover {
   vertical-align: top;
 }
 .footer .footer-line .footer-line__left {
+  color: #ffffff;
   font-weight: bold;
 }
 .footer .mr-50 {

@@ -61,6 +61,13 @@ $(document).ready(function(){
       $headerNav.addClass('nav-block')
     }
   })
+  $headerNav.delegate('a', 'click', function(e) {
+    console.log(e, 888)
+    if (e.target && e.target.dataset && e.target.dataset.anchor) {
+      location.href = `#${e.target.dataset.anchor}`
+    }
+    $headerNav.removeClass('nav-block')
+  })
   // 中间内容区域的切换
   $mainNav.delegate('.nav-item', 'click', function() {
     $(this).addClass('active').siblings().removeClass('active')

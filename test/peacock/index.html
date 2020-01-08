@@ -33,13 +33,13 @@
       </div>
       <div class="action-header-nav header-nav">
         <ul class="list-group">
-            <a href="#" class="list-group-item">关于孔雀城</a>
-            <a href="#" class="list-group-item">明星楼盘</a>
-            <a href="#" class="list-group-item">最新动态</a>
-            <a href="#" class="list-group-item">品牌价值</a>
-            <a href="#" class="list-group-item">大事记</a>
-            <a href="#" class="list-group-item">项目地图</a>
-          </ul>
+          <a href="javascript:;" data-anchor="about" class="list-group-item">关于孔雀城</a>
+          <a href="javascript:;" data-anchor="mxlp" class="list-group-item">明星楼盘</a>
+          <a href="javascript:;" data-anchor="zxdt" class="list-group-item">最新动态</a>
+          <a href="javascript:;" data-anchor="ppjz" class="list-group-item">品牌价值</a>
+          <a href="javascript:;" data-anchor="dsj" class="list-group-item">大事记</a>
+          <a href="javascript:;" data-anchor="xmdt" class="list-group-item">项目地图</a>
+        </ul>
       </div>
     </div>
     <!-- main -->
@@ -47,33 +47,26 @@
       <div class="swiper-container main-banner swiper-main">
         <!-- TODO extend: 新增时：拷贝一份`<div class="swiper-slide">` -->
         <!-- 修改`href/src`内容即可 -->
+        <!-- 图片替换格式为 900x450的二倍图.jpg 命名 banner_1.jpg -->
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <a href="#">
-              <img class="main-banner" src="./ztimages/banner_1.jpg" alt="banner_1">
-            </a>
+            <img class="main-banner" src="./ztimages/banner_1.jpg" alt="banner_1">
           </div>
           <div class="swiper-slide">
-            <a href="#">
-              <img class="main-banner" src="./ztimages/banner_2.jpg" alt="banner_2">
-            </a>
+            <img class="main-banner" src="./ztimages/banner_2.jpg" alt="banner_2">
           </div>
           <div class="swiper-slide">
-            <a href="#">
-              <img class="main-banner" src="./ztimages/banner_3.jpg" alt="banner_3">
-            </a>
+            <img class="main-banner" src="./ztimages/banner_3.jpg" alt="banner_3">
           </div>
-          <div class="swiper-slide">
-            <a href="#">
-              <img class="main-banner" src="./ztimages/banner_4.jpg" alt="banner_4">
-            </a>
-          </div>
+          <!-- <div class="swiper-slide">
+            <img class="main-banner" src="./ztimages/banner_4.jpg" alt="banner_4">
+          </div> -->
         </div>
         <!-- 如果需要分页器 -->
         <div class="swiper-pagination pagination-main"></div>
       </div>
 
-      <ul class="action-main-nav main-nav">
+      <ul class="action-main-nav main-nav" id="about">
         <li class="nav-item active" data-show="main-is-what">孔雀城是什么</li>
         <li class="nav-item" data-show="main-story">品牌大事记</li>
         <li class="nav-item" data-show="main-video">孔雀城视频</li>
@@ -82,6 +75,8 @@
       <div class="main-content main-is-what active">
         <!-- 关于孔雀城 -->
         <div class="detail-desc">
+          <!-- TODO extend: 修改`src`内容即可 -->
+          <!-- 图片替换格式为 640x480的二倍图.jpg 命名 detail-desc.jpg -->
           <img class="detail-desc__img" src="./ztimages/detail-desc.jpg" alt="detail-desc">
           <p class="detail-desc__title">孔雀城：创造美好生活</p>
           <p class="detail-desc__info">
@@ -92,107 +87,6 @@
             </a>
           </p>
         </div>
-        <!-- 明星楼盘 -->
-        <div class="detail-line">
-          <div class="detail-line__header detail-line__mxlp">
-            <a href="https://house.focus.cn/map/?brand=bcbb32dff1e12c79"  target="_blank">
-              <div class="detail-line__header-link detail-line__header-mxlp"></div>
-            </a>
-          </div>
-          <div class="swiper-container swiper-mxlp">
-            <div class="swiper-wrapper">
-              <!-- TODO extend: 新增时：拷贝一份`<div class="swiper-slide">` -->
-              <!-- 修改`href/src`内容即可 -->
-              <div class="swiper-slide">
-                <a href="#">
-                  <img class="main-banner" src="./ztimages/mxlp_01.jpg" alt="mxlp_01">
-                </a>
-              </div>
-              <div class="swiper-slide">
-                <a href="#">
-                  <img class="main-banner" src="./ztimages/mxlp_02.jpg" alt="mxlp_02">
-                </a>
-              </div>
-              <div class="swiper-slide">
-                <a href="#">
-                  <img class="main-banner" src="./ztimages/mxlp_03.jpg" alt="mxlp_03">
-                </a>
-              </div>
-            </div>
-            <div class="swiper-pagination pagination-mxlp"></div>
-          </div>
-        </div>
-        <!-- 最新动态 -->
-        <div class="detail-line">
-          <div class="detail-line__header detail-line__zxdt">
-            <a href="https://house.focus.cn/map/?brand=bcbb32dff1e12c79"  target="_blank">
-              <div class="detail-line__header-link detail-line__header-zxdt"></div>
-            </a>
-          </div>
-          <div class="detail-line__content">
-            <div class="zxdt-list">
-              <!-- TODO extend: 新增时：拷贝一份`<div class="zxdt-item">` -->
-              <!-- 修改`title/author/src`内容即可 -->              
-              <div class="zxdt-item">
-                <div class="zxdt-item__left">
-                  <p class="zxdt-item__left-title">为美好而来：用爱做翅膀，勇敢闯世界为美好而来：用爱做翅膀，勇敢闯世界为美好而来：用爱做翅膀，勇敢闯世界为美好而来：用爱做翅膀，勇敢闯世界</p>
-                  <p class="zxdt-item__left-author">— 中国网地产中国网地产中国网地产...</p>
-                </div>
-                <img class="zxdt-item__img" src="./ztimages/zxdt_01.png" alt="zxdt_01">
-              </div>
-              <div class="zxdt-item">
-                <div class="zxdt-item__left">
-                  <p class="zxdt-item__left-title">假期亲子互动困境 儿童安全教育如何排雷</p>
-                  <p class="zxdt-item__left-author">— 界面...</p>
-                </div>
-                <img class="zxdt-item__img" src="./ztimages/zxdt_02.png" alt="zxdt_02">
-              </div>
-              <div class="zxdt-item">
-                <div class="zxdt-item__left">
-                  <p class="zxdt-item__left-title">“小事”传递“大爱”，孔雀城《力所能及的1000件小事》国际斩获双奖</p>
-                  <p class="zxdt-item__left-author">— 界面...</p>
-                </div>
-                <img class="zxdt-item__img" src="./ztimages/zxdt_03.png" alt="zxdt_03">
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- 品牌价值 -->
-        <div class="detail-line">
-          <div class="detail-line__header detail-line__ppjz">
-            <a href="./ztimages/ppjz.html"  target="_blank">
-              <div class="detail-line__header-link detail-line__header-ppjz"></div>
-            </a>
-          </div>
-          <div class="detail-line__content">
-            <a href="#">
-              <img class="content-img" src="./ztimages/ppjz_1.jpg" alt="ppjz_1">
-            </a>
-          </div>
-        </div>
-        <!-- 大事记 -->
-        <div class="detail-line">
-          <div class="detail-line__header detail-line__dsj">
-          </div>
-          <div class="detail-line__content">
-            <img class="content-img" src="./ztimages/dsj_1.png" alt="dsj_1">
-            <img class="content-img" src="./ztimages/dsj_2.jpg" alt="dsj_2">
-            <img class="content-img" src="./ztimages/dsj_3.jpg" alt="dsj_3">
-          </div>
-        </div>
-        <!-- 项目地图 -->
-        <div class="detail-line">
-          <div class="detail-line__header detail-line__xmdt">
-            <a href="https://house.focus.cn/map/?brand=bcbb32dff1e12c79"  target="_blank">
-              <div class="detail-line__header-link detail-line__header-xmdt"></div>
-            </a>
-          </div>
-          <div class="detail-line__content">
-            <a href="#">
-              <img class="content-img" src="./ztimages/xmdt_1.jpg" alt="xmdt_1">
-            </a>
-          </div>
-        </div>
       </div>
       <!-- 品牌大事记 -->
       <div class="main-content main-story">
@@ -200,18 +94,124 @@
       </div>
       <!-- 孔雀城视频 -->
       <div class="main-content main-video">
-        <a class="video-wrap" href="#">
-          <img class="video-img" src="./ztimages/video_1.png" alt="video_1">
+        <a class="video-wrap" href="http://m.zhibo.focus.cn/bj/zhibo/64368.html">
+          <img class="video-img" src="./ztimages/video_1.jpg" alt="video_1">
           <i class="video-play"></i>
         </a>
-        <a class="video-wrap" href="#">
-          <img class="video-img" src="./ztimages/video_1.png" alt="video_2">
+        <a class="video-wrap" href="http://m.zhibo.focus.cn/bj/zhibo/64365.html">
+          <img class="video-img" src="./ztimages/video_2.jpg" alt="video_2">
           <i class="video-play"></i>
         </a>
-        <a class="video-wrap" href="#">
-          <img class="video-img" src="./ztimages/video_1.png" alt="video_3">
+        <a class="video-wrap" href="http://m.zhibo.focus.cn/bj/zhibo/64364.html">
+          <img class="video-img" src="./ztimages/video_3.jpg" alt="video_3">
           <i class="video-play"></i>
         </a>
+      </div>
+      <!-- 明星楼盘 -->
+      <div class="detail-line" id="mxlp">
+        <div class="detail-line__header detail-line__mxlp">
+          <!-- TODO extend: 修改`src`内容即可 -->
+          <a href="https://house.focus.cn/loupan/" target="_blank">
+            <div class="detail-line__header-link detail-line__header-mxlp"></div>
+          </a>
+        </div>
+        <div class="swiper-container swiper-mxlp">
+          <div class="swiper-wrapper">
+            <!-- TODO extend: 新增时：拷贝一份`<div class="swiper-slide">` -->
+            <!-- 修改`href/src`内容即可 -->
+            <!-- 图片替换格式为 740x555的二倍图.jpg 命名 mxlp_01.jpg -->
+            <div class="swiper-slide">
+              <a href="https://house.focus.cn/loupan/8683.html" target="_blank">
+                <img class="main-banner" src="./ztimages/mxlp_01.jpg" alt="mxlp_01">
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="https://house.focus.cn/loupan/110114288.html" target="_blank">
+                <img class="main-banner" src="./ztimages/mxlp_02.jpg" alt="mxlp_02">
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="https://langfang.focus.cn/loupan/8201.html" target="_blank">
+                <img class="main-banner" src="./ztimages/mxlp_03.jpg" alt="mxlp_03">
+              </a>
+            </div>
+          </div>
+          <div class="swiper-pagination pagination-mxlp"></div>
+        </div>
+      </div>
+      <!-- 最新动态 -->
+      <div class="detail-line" id="zxdt">
+        <div class="detail-line__header detail-line__zxdt">
+          <!-- TODO extend: 修改`src`内容即可 -->
+          <a href="http://www.kongquecheng.com/index.php/Ch/Cms/News/index/"  target="_blank">
+            <div class="detail-line__header-link detail-line__header-zxdt"></div>
+          </a>
+        </div>
+        <div class="detail-line__content">
+          <div class="zxdt-list">
+            <!-- TODO extend: 新增时：拷贝一份`<div class="zxdt-item">` -->
+            <!-- 修改`title/author/src/href`内容即可 -->
+            <!-- 图片替换格式为 240x180的二倍图.jpg 命名 zxdt_01.jpg -->
+            <a class="zxdt-item" href="https://house.focus.cn/zixun/fefb326451e14cd6.html" target="_blank">
+              <div class="zxdt-item__left">
+                <p class="zxdt-item__left-title">“一千件力所能及的小事”活动践行两周年</p>
+                <p class="zxdt-item__left-author">— 搜狐焦点北京楼市资讯</p>
+              </div>
+              <img class="zxdt-item__img" src="./ztimages/zxdt_01.jpg" alt="zxdt_01">
+            </a>
+            <a class="zxdt-item" href="https://zixun.focus.cn/bf5b29ad0df2898d.html" target="_blank">
+              <div class="zxdt-item__left">
+                <p class="zxdt-item__left-title">2周年记:孔雀城1000件小事,构筑有温度的社区</p>
+                <p class="zxdt-item__left-author">— 搜狐焦点北京楼市资讯</p>
+              </div>
+              <img class="zxdt-item__img" src="./ztimages/zxdt_02.jpg" alt="zxdt_02">
+            </a>
+            <a class="zxdt-item" href="https://house.focus.cn/zixun/92624ff83be9858d.html" target="_blank">
+              <div class="zxdt-item__left">
+                <p class="zxdt-item__left-title">孔雀城全国启动业主答谢季 营造幸福邻里美好生活</p>
+                <p class="zxdt-item__left-author">— 搜狐焦点北京楼市资讯</p>
+              </div>
+              <img class="zxdt-item__img" src="./ztimages/zxdt_03.jpg" alt="zxdt_03">
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- 品牌价值 -->
+      <div class="detail-line" id="ppjz">
+        <div class="detail-line__header detail-line__ppjz">
+          <a href="./ztimages/ppjz.html">
+            <div class="detail-line__header-link detail-line__header-ppjz"></div>
+          </a>
+        </div>
+        <div class="detail-line__content">
+          <!-- <a href="#"> -->
+          <img class="content-img" src="./ztimages/ppjz_1.jpg" alt="ppjz_1">
+          <!-- </a> -->
+        </div>
+      </div>
+      <!-- 大事记 -->
+      <div class="detail-line" id="dsj">
+        <div class="detail-line__header detail-line__dsj">
+        </div>
+        <div class="detail-line__content">
+          <img class="content-img" src="./ztimages/dsj_1.png" alt="dsj_1">
+          <img class="content-img" src="./ztimages/dsj_2.jpg" alt="dsj_2">
+          <img class="content-img" src="./ztimages/dsj_3.jpg" alt="dsj_3">
+        </div>
+      </div>
+      <!-- 项目地图 -->
+      <div class="detail-line" id="xmdt">
+        <div class="detail-line__header detail-line__xmdt">
+          <!-- TODO extend: 修改`src`内容即可 -->
+          <a href="https://house.focus.cn/map/?brand=bcbb32dff1e12c79"  target="_blank">
+            <div class="detail-line__header-link detail-line__header-xmdt"></div>
+          </a>
+        </div>
+        <div class="detail-line__content">
+          <!-- <a href="#"> -->
+          <img class="content-img" src="./ztimages/xmdt_1.jpg" alt="xmdt_1">
+          <!-- </a> -->
+        </div>
       </div>
     </div>
     <!-- footer -->
@@ -219,53 +219,53 @@
       <p class="footer-title">PECOCK CITY</p>
       <div class="footer-content">
         <p class="footer-line">
-          <span class="footer-line__left">关于孔雀城</span>
+          <a class="footer-line__left" href="http://www.kongquecheng.com/webpage/ch/cms/ej/gykqc.html">关于孔雀城</a>
           <em>丨</em>
-          <a class="footer-line__item" href="#">走进孔雀城</a>
-          <a class="footer-line__item" href="#">发展历城</a>
-          <a class="footer-line__item" href="#">孔雀城视频</a>
+          <a class="footer-line__item" href="http://www.kongquecheng.com/webpage/ch/cms/ej/gykqc.html?id=0">走进孔雀城</a>
+          <a class="footer-line__item" href="http://www.kongquecheng.com/webpage/ch/cms/ej/gykqc.html?id=1">发展历城</a>
+          <a class="footer-line__item" href="http://www.kongquecheng.com/webpage/ch/cms/ej/gykqc.html?id=2">孔雀城视频</a>
         </p>
         <p class="footer-line">
-          <span class="footer-line__left">孔雀城项目</span>
+          <a class="footer-line__left" href="http://www.kongquecheng.com/webpage/ch/cms/ej/kqcxm.html">孔雀城项目</a>
           <em>丨</em>
-          <a class="footer-line__item" href="#">环京</a>
-          <a class="footer-line__item" href="#">东北和华北</a>
-          <a class="footer-line__item" href="#">华东</a>
-          <a class="footer-line__item" href="#">华中和华南</a>
+          <a class="footer-line__item" href="http://www.kongquecheng.com/webpage/ch/cms/ej/huanjin.html">环京</a>
+          <a class="footer-line__item" href="http://www.kongquecheng.com/webpage/ch/cms/ej/huabei.html">东北和华北</a>
+          <a class="footer-line__item" href="http://www.kongquecheng.com/webpage/ch/cms/ej/huadong.html">华东</a>
+          <a class="footer-line__item" href="http://www.kongquecheng.com/webpage/ch/cms/ej/huanan.html">华中和华南</a>
         </p>
         <p class="footer-line">
-          <span class="footer-line__left">产品与服务</span>
+          <a class="footer-line__left" href="http://www.kongquecheng.com/webpage/ch/cms/ej/linian.html">产品与服务</a>
           <em>丨</em>
-          <a class="footer-line__item" href="#">产品理念</a>
-          <a class="footer-line__item" href="#">客服中心</a>
+          <a class="footer-line__item" href="http://www.kongquecheng.com/webpage/ch/cms/ej/linian.html">产品理念</a>
+          <a class="footer-line__item" href="http://www.kongquecheng.com/webpage/ch/cms/ej/kefu.html">客服中心</a>
         </p>
         <p class="footer-line">
-          <span class="footer-line__left">人力资源&nbsp;&nbsp;&nbsp;</span>
+          <a class="footer-line__left" href="http://www.kongquecheng.com/index.php/Ch/Cms/Job/index">人力资源&nbsp;&nbsp;&nbsp;</a>
           <em>丨</em>
-          <a class="footer-line__item" href="#">社会招聘</a>
-          <a class="footer-line__item" href="#">自销团队招聘</a>
-          <a class="footer-line__item" href="#">培训发展</a>
+          <a class="footer-line__item" href="http://www.kongquecheng.com/index.php/Ch/Cms/Job/index">社会招聘</a>
+          <span class="footer-line__item">自销团队招聘</span>
+          <span class="footer-line__item">培训发展</span>
         </p>
         <p class="footer-line">
-          <span class="footer-line__left mr-50">最新动态</span>
+          <a class="footer-line__left mr-50" href="http://www.kongquecheng.com/index.php/Ch/Cms/News/index">最新动态</a>
           <span class="footer-line__left mr-50">联系我们</span>
           <span class="footer-line__left">法律声明</span>
         </p>
         <p class="footer-line footer-line-img">
           <span class="footer-line__left">关注我们&nbsp;&nbsp;&nbsp;</span>
           <em>丨</em>
-          <a class="footer-line__item" href="#">
+          <span class="footer-line__item">
             <img class="footer-line__qcode" src="./ztimages/qcode.png" alt="qcode">
           </a>
         </p>
-        <p class="footer-line">
+        <!-- <p class="footer-line">
           <span class="footer-line__left">SHARE TO</span>
           <em>丨</em>
           <a class="footer-line__item icon icon2018 icon2018-fenxiangweixinpengyouquansharemianxing" href="#"></a>
           <a class="footer-line__item icon icon2018 icon2018-fenxiangweiboxinlangsinashare1" href="#"></a>
           <a class="footer-line__item icon icon2018 icon2018-fenxiangQQqqkongjianqzoneten1" href="#"></a>
           <a class="footer-line__item icon icon2018 icon2018-fenxiangdoubanshareyuanxingmianxing" href="#"></a>
-        </p>
+        </p> -->
       </div>
       <img class="footer-logo-bottom" src="./ztimages/logo-bottom.png" alt="footer-logo-bottom">
     </div>
