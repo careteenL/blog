@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Graph</title>
+  <style>
+  .pentagon {
+    width: 90px;
+    position: relative;
+    border-width: 50px 0 0;
+    border-style: solid;
+    border-color: #277bab transparent;
+  }
+  .pentagon:before {
+    content: "";
+    height: 0;
+    width: 0;
+    position: absolute;
+    top: -85px;
+    left: 0;
+    border-width: 0 45px 35px;
+    border-style: solid;
+    border-color: transparent transparent #277bab;
+  }
+  </style>
+</head>
+<body>
+  <p>五边形</p>
+  <div class="pentagon"></div>
+  
+</body>
+</html>
