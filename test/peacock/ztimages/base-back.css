@@ -156,6 +156,9 @@ a:hover {
   width: 100%;
   height: 4.5rem;
 }
+.main .main-banner.banner--mxlp {
+  height: 5.55rem;
+}
 /* main 导航 */
 .main .main-nav {
   padding: 0;
