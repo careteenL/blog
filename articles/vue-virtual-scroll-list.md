@@ -361,3 +361,5 @@ updated() {
 
 有感兴趣且有解决思路的大佬欢迎交流~
 
+> 原创于[@careteen/Blog](https://github.com/careteenL/blog/blob/master/articles/vue-virtual-scroll-list.md)，转载请注明来源。
+

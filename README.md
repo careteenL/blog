@@ -46,6 +46,9 @@
 
 不定时更新...
 
+- 2020年3月
+  - [如何渲染几万条数据并不卡住界面](https://juejin.im/post/5e666b526fb9a07ca137254b)
+
 - 2019年12月
   - [在vue和element-ui的table中实现分页复选](https://github.com/careteenL/blog/issues/7) 图片失效见[segment](https://segmentfault.com/a/1190000021185922)
   
