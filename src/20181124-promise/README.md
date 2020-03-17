@@ -1027,7 +1027,7 @@ let cancelable = (promise, token) => {
         reject(new Error('cancel'))
       }
     })
-  ]).catch(e => {
+  ]).catch(e => { // 在里面做一些重置操作
     console.log(e)
   })
 }
