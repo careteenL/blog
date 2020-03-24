@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Web site created using create-react-app" />
+  <title>React App</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script>
+    !(function (history) {
+      let pushState = history.pushState;//在自执行函数缓存旧的pushState方法
+      history.pushState = function (state, title, url) {
+        if (typeof window.onpushstate == 'function') {
+          window.onpushstate(state, url);
+        }
+        return pushState.apply(history, arguments);
+      }
+    })(window.history);
+  </script>
+</body>
+
+</html>

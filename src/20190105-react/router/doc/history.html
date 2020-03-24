@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Web site created using create-react-app" />
+  <title>React App</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script>
+    let root = document.getElementById('root');
+    window.onpushstate = function (state, title, url) {
+      console.log({ type: 'onpushstate', state, pathname: url });
+      root.innerHTML = url;
+    }
+    !(function (history) {
+      let pushState = history.pushState;//在自执行函数缓存旧的pushState方法
+      history.pushState = function (state, title, url) {
+        if (typeof window.onpushstate == 'function') {
+          window.onpushstate(state, url);
+        }
+        return pushState.apply(history, argument);
+      }
+    })(window.history);
+    //浏览器是没有onpushstate事件的
+    //window.history 这是浏览器原生提供的对象，用来让我们通过它操作会话容器
+    window.onpopstate = function (event) {
+      //type=popstate  当前history的状态
+      console.log({ type: event.type, state: event.state, pathname: window.location.pathname });
+      root.innerHTML = window.location.pathname;
+    }
+    setTimeout(() => {
+      //pushState方法是不会触发事件的
+      window.history.pushState({ page: 1 }, 'page1', '/page1');
+    }, 1000);
+    setTimeout(() => {
+      //pushState方法是不会触发事件的
+      window.history.pushState({ page: 2 }, 'page2', '/page2');
+    }, 2000);
+    setTimeout(() => {
+      //pushState方法是不会触发事件的
+      window.history.pushState({ page: 3 }, 'page3', '/page3');
+    }, 3000);
+    setTimeout(() => {
+      //pushState方法是不会触发事件的
+      window.history.go(-1);
+    }, 4000);
+  </script>
+</body>
+
+</html>
