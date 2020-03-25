@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route } from './';
 export default function (OldComponent) {
-    // props={title:"珠峰"}
+    // props={title:"Careteen"}
     //routeProps={location,history,match}
     return props => (
         <Route render={

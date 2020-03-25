@@ -15,7 +15,7 @@ console.log(state);//{number:}
 
 class Component {
     constructor() {
-        this.state = { name: 'zhufeng', number: 0 };
+        this.state = { name: 'Careteen', number: 0 };
         this.batchUpdate = false;
         this.updateQueue = [];
         this.callbackQueue = [];

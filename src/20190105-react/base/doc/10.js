@@ -14,7 +14,7 @@ class Counter extends React.Component {
         this.add = this.add.bind(this);
         //定义状态地方，或者 给状态初始化，或者说给this.state直接赋值的地方
         //构造函数是唯一给状态赋值的地方
-        this.state = { name: 'zhufeng', number: 0 };
+        this.state = { name: 'Careteen', number: 0 };
     }
     /**
      * 合成事件  React合成事件

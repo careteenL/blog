@@ -17,7 +17,7 @@ ReactDOM.render(
         <>
             <div className="navbar navbar-inverse">
                 <div className="container-fluid">
-                    <NavHeader title="珠峰" />
+                    <NavHeader title="Careteen" />
                     <ul className="nav navbar-nav">
                         <li><NavLink exact={true} to="/">Home</NavLink></li>
                         <li><NavLink to="/user">User</NavLink></li>

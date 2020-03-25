@@ -35,9 +35,9 @@ class Welcome extends React.Component {
         )
     }
 }
-//let element = <Welcome name="zhufeng" />;
+//let element = <Welcome name="Careteen" />;
 //createElement的第一个参数是元素的类型，可以是一个字符串，也可以是类组件，也可以是一个函数
 //React是通过首字母是否是大写来区分是内置的原生DOM组件(span h1).和自定义组件(都要以大写字母开头)
-//let element = React.createElement(welcome, { name: "zhufeng" });
+//let element = React.createElement(welcome, { name: "Careteen" });
 //The tag <welcome> is unrecognized in this browser. If you meant to render a React component, start its name with an uppercase letter.
 ReactDOM.render(<Welcome />, document.getElementById('root'));

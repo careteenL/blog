@@ -28,4 +28,4 @@ function withLogger(OldComponent) {
     }
 }
 let LoggerApp = withLogger(App);
-ReactDOM.render(<LoggerApp name='zhufeng' />, document.getElementById('root'));
+ReactDOM.render(<LoggerApp name='Careteen' />, document.getElementById('root'));

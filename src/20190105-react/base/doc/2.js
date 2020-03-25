@@ -7,7 +7,7 @@ import ReactDOM from 'react-dom';
         <div>Hello {name}</div>
     )
 }
-let element = greeting('zhufeng'); */
+let element = greeting('Careteen'); */
 //Each child in a list should have a unique "key" prop.
 //在一个列表中的每个孩子，应该有一个唯一的 key属性
 let names = ['1', '2', '3'];

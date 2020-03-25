@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
  */
 class Counter extends React.Component {
     static defaultProps = {//0.设置默认属性
-        name: 'zhufeng'
+        name: 'Careteen'
     }
     constructor(props) {
         super(props);
