@@ -34,8 +34,9 @@
   - 📚学习并仿写webpack[@careteen/webpack](https://github.com/careteenL/webpack)
   - 📚学习并仿写vue[@careteen/vue](https://github.com/careteenL/vue)
   - 📚学习并仿写koa[@careteen/koa](https://github.com/careteenL/koa)
-  - 📚学习并仿写redux[@careteen/redux](https://github.com/careteenL/redux)
   - 📚学习并仿写http-server[@careteen/http-server](https://github.com/careteenL/http-server)
+  - 📚学习并仿写react[@careteen/react](https://github.com/careteenL/react)
+  - 📚学习并仿写redux[@careteen/redux](https://github.com/careteenL/redux)
   - 📚学习并仿写dva[@careteen/dva](https://github.com/careteenL/dva)
   - 持续学习中...
 
