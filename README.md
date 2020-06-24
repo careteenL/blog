@@ -14,21 +14,11 @@
 
 ### 作品
 
-- 🚀项目模板脚手架[@careteen/cli](https://github.com/careteenL/cli)，目前已提供模板项目
-  - 第三方库
-  - vue后台系统
-  - vue多页系统
-  - mpvue小程序toB
-  - react后台系统
-  - 支持更多中...
+- 🚀项目模板脚手架[@careteen/cli](https://github.com/careteenL/cli)，目前已提供模板项目`第三方库`、`vue后台系统`、`vue多页系统`、`mpvue小程序toB`、`react后台系统`...
 
-- 💄基于@vue/cli开发的vue组件库[@careteen/lan-vue](https://github.com/careteenL/lan-vue)，目前已提供组件
-  - Cascader 级联选择器
-  - 开发中...
+- 💄基于@vue/cli开发的vue组件库[@careteen/lan-vue](https://github.com/careteenL/lan-vue)，目前已提供组件`Cascader`、`Table`...
 
-- 💄react组件库[@careteen/lan-react](https://github.com/careteenL/lan-react)，目前已提供组件
-  - Tree
-  - 开发中...
+- 💄react组件库[@careteen/lan-react](https://github.com/careteenL/lan-react)，目前已提供组件`Tree`...
 
 - 🚀JavaScript第三方库脚手架[@careteen/jslib-cli](https://github.com/careteenL/jslib-cli)，下面类库均基于此开发。
   - ⚡️一个精简的发布订阅模式，支持先订阅后发布[@careteen/event-emitter](https://github.com/careteenL/event-emitter)
@@ -36,6 +26,7 @@
   - ⚡️JavaScript类型检查，弥补typeof不足[@careteen/type](https://github.com/careteenL/type)
   - ⚡️提供一系列判断函数[@careteen/is](https://github.com/careteenL/is)，基于[@careteen/type](https://github.com/careteenL/type)
   - ⚡️一个更快、精简的最近最少使用缓存策略（LRU）[@careteen/lru](https://github.com/careteenL/lru)
+  - ⚡️基于canvas生成水印[@careteen/watermark](https://github.com/careteenL/watermark)
   - 📚学习并仿写webpack[@careteen/webpack](https://github.com/careteenL/webpack)
   - 📚学习并仿写vue[@careteen/vue](https://github.com/careteenL/vue)
   - 📚学习并仿写koa[@careteen/koa](https://github.com/careteenL/koa)
@@ -44,6 +35,8 @@
   - 📚学习并仿写redux[@careteen/redux](https://github.com/careteenL/redux)
   - 📚学习并仿写dva[@careteen/dva](https://github.com/careteenL/dva)
   - 持续学习中...
+
+- 📚JavaScript实现设计模式[@careteen/design-pattern](https://github.com/careteenL/design-pattern)
 
 <!-- ### 个人履历 -->
 
