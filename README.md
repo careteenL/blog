@@ -37,6 +37,10 @@
   - 持续学习中...
 
 - 📚JavaScript实现设计模式[@careteen/design-pattern](https://github.com/careteenL/design-pattern)
+- 🔨移除没有使用到的css选择器[@webpack-plugin/remove-uncss-webpack-plugin](https://github.com/careteenL/remove-uncss-webpack-plugin)
+- 🔨`import element-ui、antd`时缩小引用范围，优化打包[@webpack-plugin/babel-plugin-import-opt](https://github.com/careteenL/babel-plugin-import-opt)
+- 🚀前端性能监控工具[@careteen/leesin](https://github.com/careteenL/leeSin)
+
 
 <!-- ### 个人履历 -->
 
@@ -68,6 +72,10 @@
   - [事件循环详解](https://github.com/careteenL/blog/issues/2)
   - [异步发展流程-手摸手带你实现一个Promise ](https://github.com/careteenL/blog/issues/1)
 
+- 2019年4月
+  - [vue-router源码解读](https://github.com/careteenL/vue-router)
+  - [vuex源码解读](https://github.com/careteenL/vuex-analysis)
+
 - 2018年12月
   - [为什么要使用Node](./src/20181201-node/node.md)
   - [手摸手带你撸一个commonjs规范](./src/20181201-node/module.md)
@@ -78,6 +86,13 @@
   - [手摸手带你实现一个EventEmitter](./src/20181126-pub_sub)
   - [ES6的骚操作](./src/20181127-es6) 待完善
   - [初识数据结构与算法](./src/20181122-dsa)
+
+- 2018年8月
+  - [GIT常用指令](https://github.com/careteenL/git-practice)
+  - [APP内嵌H5页面中JS和APP的交互解决方案(可传参、可回调)](https://github.com/careteenL/JsAndAppInteraction)
+
+- 2018年4月
+  - [基于NodeJs+MongoDB+jQuery搭建的豆瓣电影音乐网站](https://github.com/careteenL/douban_study)
 
 ### 联系我
 
