@@ -50,6 +50,9 @@
 
 不定时更新...
 
+- 2020年8月
+  - [如何实现类似于百度网盘大文件的断点续传](https://segmentfault.com/a/1190000023619104)
+
 - 2020年6月
   - [由浅入深React的Fiber架构](https://github.com/careteenL/react/tree/master/packages/fiber)
 
