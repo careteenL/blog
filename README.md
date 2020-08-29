@@ -19,7 +19,7 @@
 - 💄基于@vue/cli开发的vue组件库[@careteen/lan-vue](https://github.com/careteenL/lan-vue)，目前已提供组件`Cascader`、`Table`...
 
 - 💄react组件库[@careteen/lan-react](https://github.com/careteenL/lan-react)，目前已提供组件`Tree`...
-- 💄react UI设计&组件库[@careteen/lan](https://github.com/careteenL/lan)，借助`CRA-Ts+Stroybook+Styled-components+...`实现，目前已提供`Color/Typography/Button/Highlight/Icon/Avatar/Badge/Avatar/Radio`...
+- 💄react UI设计&组件库[@careteen/lan](https://github.com/careteenL/lan)，借助`CRA-Ts+Stroybook+Styled-components+...`实现，目前已提供`Color/Typography/Button/Highlight/Icon/Avatar/Badge/Avatar/Radio/Carousel`...
 
 - 🚀JavaScript第三方库脚手架[@careteen/jslib-cli](https://github.com/careteenL/jslib-cli)，下面类库均基于此开发。
   - ⚡️一个精简的发布订阅模式，支持先订阅后发布[@careteen/event-emitter](https://github.com/careteenL/event-emitter)
@@ -35,6 +35,7 @@
   - 📚学习并仿写react[@careteen/react](https://github.com/careteenL/react)
   - 📚学习并仿写redux[@careteen/redux](https://github.com/careteenL/redux)
   - 📚学习并仿写dva[@careteen/dva](https://github.com/careteenL/dva)
+  - 📚学习并仿写vite[@careteen/vite](https://github.com/careteenL/vite)
   - 持续学习中...
 
 - 📚JavaScript实现设计模式[@careteen/design-pattern](https://github.com/careteenL/design-pattern)
