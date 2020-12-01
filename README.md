@@ -43,6 +43,9 @@
 - 🔨`import element-ui、antd`时缩小引用范围，优化打包[@webpack-plugin/babel-plugin-import-opt](https://github.com/careteenL/babel-plugin-import-opt)
 - 🚀前端性能监控工具[@careteen/leesin](https://github.com/careteenL/leeSin)
 
+- VSCode插件
+  - 🔨插入/删除Log，删除注释[@careteen/Nidalee](https://github.com/careteenL/vscode-plugin-nidalee)
+
 
 <!-- ### 个人履历 -->
 
