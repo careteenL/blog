@@ -44,7 +44,8 @@
 - 🚀前端性能监控工具[@careteen/leesin](https://github.com/careteenL/leeSin)
 
 - VSCode插件
-  - 🔨插入/删除Log，删除注释[@careteen/Nidalee](https://github.com/careteenL/vscode-plugin-nidalee)
+  - 🔨插入/删除Log，删除注释[@careteen/Nidalee](https://github.com/careteenL/vscode-extension-nidalee)
+  - 🔨在线阅读[@careteen/Knight](https://github.com/careteenL/vscode-extension-knight)
 
 
 <!-- ### 个人履历 -->
