@@ -106,4 +106,3 @@
 ### 联系我
 
 - 微信(Careteen)（猎头勿扰）
-![wechart-qrcode](./assets/wechart-qrcode.jpeg)
