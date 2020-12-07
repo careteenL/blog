@@ -12,6 +12,10 @@ module.exports = {
         text: '文章',
         link: '/article/'
       },
+      {
+        text: '内推',
+        link: '/recruit/'
+      },
     ],
     sidebar: {
       '/production/': [
@@ -25,7 +29,9 @@ module.exports = {
       ],
     },
     lastUpdated: 'Last Updated',
-    repo: 'careteenL',
+    repo: 'careteenL/blog',
+    docsDir: 'docs',
+    editLinks: true,
     smoothScroll: true,
   }
 }
