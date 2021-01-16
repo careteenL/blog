@@ -33,6 +33,7 @@
 - 📚学习并仿写redux[@careteen/redux](https://github.com/careteenL/redux)
 - 📚学习并仿写dva[@careteen/dva](https://github.com/careteenL/dva)
 - 📚学习并仿写vite[@careteen/vite](https://github.com/careteenL/vite)
+- 📚学习并仿写axios[@careteen/axios](https://github.com/careteenL/axios)
 - 持续学习中...
 
 ## 📚JavaScript实现设计模式

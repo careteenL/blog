@@ -4,6 +4,9 @@
 
 不定时更新...
 
+## 2021年1月
+  - [使用Typescript实现轻量级Axios](https://segmentfault.com/a/1190000039000404)
+
 ## 2020年8月
   - [如何实现类似于百度网盘大文件的断点续传](https://segmentfault.com/a/1190000023619104)
 
