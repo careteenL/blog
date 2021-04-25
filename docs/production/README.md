@@ -32,6 +32,7 @@
 - 📚学习并仿写react[@careteen/react](https://github.com/careteenL/react)
 - 📚学习并仿写redux[@careteen/redux](https://github.com/careteenL/redux)
 - 📚学习并仿写dva[@careteen/dva](https://github.com/careteenL/dva)
+- 📚学习并仿写umi[@careteen/umi](https://github.com/careteenL/umi)
 - 📚学习并仿写vite[@careteen/vite](https://github.com/careteenL/vite)
 - 📚学习并仿写axios[@careteen/axios](https://github.com/careteenL/axios)
 - 🚀增强px2rem-loader[@careteen/px2rem-loader](https://github.com/careteenL/px2rem-loader)
