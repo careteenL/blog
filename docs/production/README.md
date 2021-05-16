@@ -36,6 +36,7 @@
 - 📚学习并仿写vite[@careteen/vite](https://github.com/careteenL/vite)
 - 📚学习并仿写axios[@careteen/axios](https://github.com/careteenL/axios)
 - 🚀增强px2rem-loader[@careteen/px2rem-loader](https://github.com/careteenL/px2rem-loader)
+- 📚学习并仿写rollup[@careteen/rollup](https://github.com/careteenL/rollup)
 - 持续学习中...
 
 ## 📚JavaScript实现设计模式
