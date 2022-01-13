@@ -4,6 +4,10 @@
 
 不定时更新...
 
+## 2022年1月
+
+- [前端工程化-打造企业通用脚手架](https://mp.weixin.qq.com/s/efzaiX8r2htJ1NvN26ZU8g)
+
 ## 2021年5月
 
 - [揭秘 Rollup Tree Shaking](https://github.com/careteenL/rollup)
