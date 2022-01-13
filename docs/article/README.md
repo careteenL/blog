@@ -7,6 +7,9 @@
 ## 2022年1月
 
 - [前端工程化-打造企业通用脚手架](https://mp.weixin.qq.com/s/efzaiX8r2htJ1NvN26ZU8g)
+## 2021年8月
+
+- [深入浅出微前端](https://github.com/careteenL/micro-fe)
 
 ## 2021年5月
 
