@@ -65,3 +65,6 @@
 
 ## 2018年4月
   - [基于NodeJs+MongoDB+jQuery搭建的豆瓣电影音乐网站](https://github.com/careteenL/douban_study)
+
+
+> 我的博客即将同步至腾讯云+社区，邀请大家一同入驻：https://cloud.tencent.com/developer/support-plan?invite_code=3svzxdkq6vi8g
