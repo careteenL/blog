@@ -7,7 +7,7 @@
     "test": "test"
   },
   "dependencies": {
-    "qs": "^6.7.0"
+    "qs": "^6.9.7"
   },
   "devDependencies": {
     "vuepress": "^1.7.1"
