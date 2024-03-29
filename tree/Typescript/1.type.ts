@@ -54,3 +54,19 @@ type Overwrite<T extends object, U extends object, I = Diff<T, U> & Intersection
 
 type OverwriteEg = Overwrite<{ key1: number, other: boolean }, { key1: string, key3: number }>
 
+/**
+ * @desc 推断一个函数的返回值
+ * @knowledge infer
+ */
+type MyReturnType<T extends (...args: any) => any> = T extends (...args: any) => infer R ? R : any
+type MyReturnTypeEg = MyReturnType<(a: number) => number>
+
+/**
+ * @desc 给一个字符串每个字符后面加上指定字符
+ * @knowledge 递归
+ */
+type LoopStr<T extends string, U extends string> = T extends `${infer P}${infer R}`
+  ? `${P}${U}${LoopStr<R, U>}`
+  : '';
+type LoopStrEg = LoopStr<'string', '-'>
+
