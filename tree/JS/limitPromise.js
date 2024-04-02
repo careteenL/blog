@@ -1,5 +1,5 @@
 /**
- * @desc 实现控制异步最大并发数
+ * @desc 实现控制异步最大并发数，每个请求返回值由各自处理
  */
 class LimitPromise {
   constructor(limit) {
@@ -61,3 +61,59 @@ limitP.call(sleep, 2); // 2秒后打印
 limitP.call(sleep, 3); // 1 + 3 秒后打印
 limitP.call(sleep, 3); // 1 + 3 秒后打印
 limitP.call(sleep, 3); // 2 + 3 秒后打印
+
+/**
+ * @desc 控制最大并发数，要求不管成功还是失败都将返回值按请求顺序返回
+ * @test 将下方代码拷贝去浏览器控制台
+ * @param {String[]} urls
+ * @param {Number} limit
+ */
+function limitConcurrentReq(urls, limit = 3) {
+  return new Promise((resolve, reject) => {
+    const len = urls.length; // 总的请求树
+    if (len === 0) {
+      resolve([]);
+      return;
+    }
+    let currentIndex = 0; // 当前进行的下标
+    let completed = 0; // 完成的请求树
+    const result = new Array(len); // 存储所有的结果
+    function sendRequest() {
+      const progress = currentIndex;
+      currentIndex++;
+      if (progress >= len) {
+        return;
+      }
+      console.log(`Request ${progress} is in progress`, performance.now());
+      fetch(urls[progress])
+        .then((res) => {
+          result[progress] = res;
+        })
+        .catch((error) => {
+          result[progress] = error;
+        })
+        .finally(() => {
+          completed++;
+          if (completed >= len) {
+            resolve(result);
+            return;
+          }
+          console.debug(
+            `Request ${progress} is in finished`,
+            performance.now()
+          );
+          sendRequest();
+        });
+    }
+    // 一开始先发送 limit 个请求
+    while (currentIndex < Math.min(limit, len)) {
+      sendRequest();
+    }
+  });
+}
+
+const urls = new Array(12)
+  .fill("")
+  .map((_, index) => `https://jsonplaceholder.typicode.com/posts/${index + 1}`);
+
+limitConcurrentReq(urls, 3).then((res) => console.log("res: ", res));

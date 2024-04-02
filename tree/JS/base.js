@@ -195,3 +195,100 @@ let aa = {
 if (aa == 1 && aa == 2 && aa == 3) {
   console.log("flag is true");
 }
+
+/**
+ * @desc 实现 Promise.all 方法，当所有 promise 都成功才会resolve，如果有一个失败就 reject
+ */
+function PromiseAll(promises) {
+  return new Promise((resolve, reject) => {
+    const result = []; // 存放所有结果
+    const completed = 0; // 当前完成的数量
+    function resolveData(res, i) {
+      result[i] = res;
+      completed++;
+      if (completed >= promises.length) {
+        resolve(result);
+      }
+    }
+
+    for (let i = 0; i < promises.length; i++) {
+      const promise = promises[i];
+      // 需要判断每一项是否是 promise，如果不是，就直接返回
+      if (typeof promise.then === "function") {
+        promise.then((res) => {
+          resolveData(res, i);
+        }, reject);
+      } else {
+        resolveData(res, i);
+      }
+    }
+  });
+}
+
+/**
+ * @desc 如何取消一个 promise 不返回结果
+ */
+function cancelPromise(promise, token) {
+  return Promise.race([
+    promise,
+    new Promise((_, reject) => {
+      token.cancel = () => {
+        reject(new Error("cancel"));
+      };
+    }),
+  ]).catch((error) => {
+    console.log("error: ", error);
+  });
+}
+
+const fetchData = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve("success");
+  }, 2000);
+});
+const token = {};
+cancelPromise(fetchData, token).then((res) => {
+  console.log("res: ", res);
+});
+
+// 在某个时刻取消 promise
+setTimeout(() => {
+  token.cancel();
+}, 400);
+
+/**
+ * @desc 实现 co 遍历 generator
+ */
+function co(it) {
+  return new Promise((resolve, reject) => {
+    function next(data) {
+      const { value, done } = it.next(data);
+      if (done) {
+        resolve(value);
+      } else {
+        value.then((res) => {
+          next(res);
+        }, reject);
+      }
+    }
+    next();
+  });
+}
+
+function read(params = "") {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(params);
+    }, 200);
+  });
+}
+
+function* r() {
+  const r1 = yield read("1");
+  const r2 = yield read(`${r1}_2`);
+  const r3 = yield read(`${r2}_3`);
+  return r3;
+}
+co(r()).then((res) => {
+  console.log("res: ", res);
+});
