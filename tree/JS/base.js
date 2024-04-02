@@ -167,3 +167,31 @@ let add = curry(addFn);
 console.log(add(1, 2, 3, 4, 5)); //15
 console.log(add(1)(2, 3)(4, 5)); //15
 console.log(add(1)(2)(3)(4)(5)); //15
+
+/**
+ * @desc 使 a == 1 && a == 2 && a == 3 成立
+ * @knowledge Proxy Symbol.toPrimitive
+ */
+// method 1
+let a = new Proxy(
+  {},
+  {
+    i: 1,
+    get() {
+      return () => this.i++;
+    },
+  }
+);
+if (a == 1 && a == 2 && a == 3) {
+  console.log("flag is true");
+}
+// method 2 需要形成闭包 保留 i 的值
+let aa = {
+  [Symbol.toPrimitive]: (function(hint) {
+    let i = 1;
+    return () => i++;
+  })(),
+};
+if (aa == 1 && aa == 2 && aa == 3) {
+  console.log("flag is true");
+}
