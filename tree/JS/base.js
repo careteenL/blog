@@ -292,3 +292,60 @@ function* r() {
 co(r()).then((res) => {
   console.log("res: ", res);
 });
+
+/**
+ * @desc 发布订阅，支持先订阅后发布、先发布后订阅
+ * 类似于关注微信公众号，历史文章也能看到
+ * 多维护一个缓存 map，当发布的时候都往里面放，若有订阅的时候判断 map 是否有值，有就直接执行，就能实现先发布后订阅
+ */
+class EventEmitter {
+  // 缓存所有发布
+  cached = {};
+  // 订阅 map
+  handlers = {};
+  // 订阅
+  on(type, callback) {
+    if (!this.handlers[type]) {
+      this.handlers[type] = [];
+    }
+    this.handlers[type].push(callback);
+    // 订阅时如果有发布，则执行订阅函数
+    if (this.cached[type]) {
+      this.cached[type].forEach((item) => {
+        callback(...item);
+      });
+    }
+  }
+  // 发布
+  emit(type, ...args) {
+    const callbacks = this.handlers[type];
+    if (callbacks && callbacks.length) {
+      callbacks.forEach((callback) => {
+        callback(...args);
+      });
+    }
+    if (!this.cached[type]) {
+      this.cached[type] = [];
+    }
+    // 每次发布都缓存发布的传参，以便订阅时使用
+    this.cached[type].push(args);
+  }
+}
+
+const eventEmitter = new EventEmitter();
+// 先订阅后发布
+eventEmitter.on("click", (res) => {
+  console.log("click: ", res);
+});
+eventEmitter.on("click", (res) => {
+  console.log("click1: ", res);
+});
+eventEmitter.emit("click", 1);
+// 先发布后订阅
+eventEmitter.emit("tap", 1);
+eventEmitter.on("tap", (res) => {
+  console.log("tap: ", res);
+});
+eventEmitter.on("tap", (res) => {
+  console.log("tap1: ", res);
+});
