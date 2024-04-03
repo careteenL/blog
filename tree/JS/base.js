@@ -349,3 +349,43 @@ eventEmitter.on("tap", (res) => {
 eventEmitter.on("tap", (res) => {
   console.log("tap1: ", res);
 });
+
+/**
+ * @desc 实现 jsonp
+ */
+function jsonp({ url, jsonp, data }) {
+  return new Promise((resolve, reject) => {
+    const script = document.createElement("script");
+    const queryStr = url.indexOf("?") === -1 ? "?" : "&";
+    for (const key in data) {
+      queryStr += `${key}=${data[key]}&`;
+    }
+    const callbackName = `JQuery_${Date.now()}`;
+    window[callbackName] = function(response) {
+      delete window[callbackName];
+      document.body.removeChild(script);
+      resolve(response);
+    };
+    script.src = `${url}${queryStr}${jsonp}=${callbackName}`;
+    document.body.appendChild(script);
+  });
+}
+
+// 在某个地方调用并处理返回结果
+jsonp({
+  url: "",
+  jsonp: "cb",
+  data: {},
+}).then((res) => {
+  console.log("res: ", res);
+});
+// nodejs 服务端代码示例
+const express = require("express");
+const app = express();
+app.get("/", (req, res) => {
+  res.type("text/javascript");
+  res.send(`${req.query.cb}(${JSON.stringify({ a: 1 })})`);
+});
+app.listen(3000, () => {
+  console.log("start server");
+});
