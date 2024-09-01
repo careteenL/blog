@@ -351,6 +351,19 @@ eventEmitter.on("tap", (res) => {
 });
 
 /**
+ * @des 跨域的解决方案
+ * - 前端和后端通信
+ *  - jsonp
+ *  - cors 后端或者 nginx 配置
+ *  - http-proxy-middleware node 中间件
+ *  - websocket
+ * - iframe间通信
+ *  - postMessage
+ *  - location.hash
+ *  - window.name
+ *  - document.domain 同一主域不同子域
+ */
+/**
  * @desc 实现 jsonp
  */
 function jsonp({ url, jsonp, data }) {

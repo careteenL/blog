@@ -1,37 +1,32 @@
 module.exports = {
-  title: 'Careteen',
-  description: 'Careteen Blog',
-  base: '/blog/',
+  title: "Careteen",
+  description: "Careteen Blog",
+  // base: '/blog/',
+  base: "/",
   themeConfig: {
     nav: [
       {
-        text: '作品',
-        link: '/production/'
+        text: "作品",
+        link: "/production/",
       },
       {
-        text: '文章',
-        link: '/article/'
+        text: "文章",
+        link: "/article/",
       },
       {
-        text: '内推',
-        link: '/recruit/'
+        text: "内推",
+        link: "/recruit/",
       },
     ],
     sidebar: {
-      '/production/': [
-        ''
-      ],
-      '/article/': [
-        ''
-      ],
-      '/': [
-        ''
-      ],
+      "/production/": [""],
+      "/article/": [""],
+      "/": [""],
     },
-    lastUpdated: 'Last Updated',
-    repo: 'careteenL/blog',
-    docsDir: 'docs',
+    lastUpdated: "Last Updated",
+    repo: "careteenL/blog",
+    docsDir: "docs",
     editLinks: true,
     smoothScroll: true,
-  }
-}
+  },
+};
