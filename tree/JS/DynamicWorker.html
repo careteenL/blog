@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DynamicWorker</title>
+</head>
+
+<body>
+
+  <script type="module">
+    import DynamicWorker from './DynamicWorker.js'
+    const run = async () => {
+      const dynamicWorker = DynamicWorker.getInstance();
+      const res = await dynamicWorker.createWorker({
+        executor: ({ isEmpty, list }) => {
+          return new Promise((resolve) => {
+            const res = list.map(isEmpty);
+            resolve(res);
+          });
+        },
+        params: {
+          isEmpty: (value) => !!value,
+          list: [0, undefined, null, ""],
+        },
+      });
+      console.log("res", res);
+    };
+
+    run();
+  </script>
+
+</body>
+
+</html>
