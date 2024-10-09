@@ -1,6 +1,6 @@
 module.exports = {
-  title: "Careteen",
-  description: "Careteen Blog",
+  title: "Careteen's Blog",
+  description: "Careteen's Blog",
   // base: '/blog/',
   base: "/",
   themeConfig: {
