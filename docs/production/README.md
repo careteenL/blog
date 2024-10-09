@@ -37,6 +37,6 @@
 - [babel-plugin-import-opt](https://github.com/careteenL/babel-plugin-import-opt) | 🔨 工具 | `import element-ui、antd`时缩小引用范围，优化打包 | ![GitHub Repo stars](https://img.shields.io/github/stars/careteenL/babel-plugin-import-opt) |
 - [@careteen/Nidalee](https://github.com/careteenL/vscode-extension-nidalee) | 🔨 插件 | vscode 插件-插入/删除 Log，删除注释 | ![GitHub Repo stars](https://img.shields.io/github/stars/careteenL/vscode-extension-nidalee) |
 - [@careteen/Knight](https://github.com/careteenL/vscode-extension-knight) | 🔨 插件 | vscode 插件-在线阅读 | ![GitHub Repo stars](https://img.shields.io/github/stars/careteenL/vscode-extension-knight)
-- [Luban](https://github.com/careteenL/LuBan) | 🚀 系统 | 低代码平台 | ![GitHub Repo stars](https://img.shields.io/github/stars/careteenL/LuBan)
+- [Luban](http://luban.careteen.cn/) | 🚀 系统 | 低代码平台 | ![GitHub Repo stars](https://img.shields.io/github/stars/careteenL/LuBan)
 - [umi-plugin-dofin](https://github.com/careteenL/umi-plugin-dofin) | 🚀 工具 | dofin 监控 sdk 的 umi 插件 | ![GitHub Repo stars](https://img.shields.io/github/stars/careteenL/umi-plugin-dofin)
 - [meeting](http://meeting.careteen.cn/) | 🚀 系统 |会议室预定系统 | ![GitHub Repo stars](https://img.shields.io/github/stars/careteenL/gpt-code-gen)
